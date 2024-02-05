@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 
@@ -29,6 +30,27 @@ public class Utilities
 			return true;
 		else if(expression.isBottomEntity())
 			return false;
+		else if(expression.isIndividual())
+			return true;
+		switch(expression.getClassExpressionType())
+		{
+			case OWL_CLASS:
+				return true;
+			case OBJECT_INTERSECTION_OF:
+				return false;
+			case OBJECT_SOME_VALUES_FROM:
+				return false;
+			default:
+				return false;
+		}
+	}
+	
+	static boolean isInBCOrBottom(OWLClassExpression expression)
+	{
+		if(expression.isTopEntity())
+			return true;
+		else if(expression.isBottomEntity())
+			return true;
 		else if(expression.isIndividual())
 			return true;
 		switch(expression.getClassExpressionType())
