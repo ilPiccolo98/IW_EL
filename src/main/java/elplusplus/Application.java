@@ -35,8 +35,8 @@ public class Application
         Set<GCI> gcis = Utilities.getGCIs(o);
         for(GCI gic : gcis)
         {
-        	System.out.println("Type of subclass: " + gic.getSubClass().getClassExpressionType() + "is it in BC: " + Utilities.isInBC(gic.getSubClass()));
-        	System.out.println("Type of superclass: " + gic.getSuperClass().getClassExpressionType() + "is it in BC: " + Utilities.isInBC(gic.getSuperClass()));	
+        	System.out.println("Type of subclass: " + gic.getSubClass().getClassExpressionType() + " is it in BC: " + Utilities.isInBC(gic.getSubClass()));
+        	System.out.println("Type of superclass: " + gic.getSuperClass().getClassExpressionType() + " is it in BC: " + Utilities.isInBC(gic.getSuperClass()));	
         }
 	}
 }

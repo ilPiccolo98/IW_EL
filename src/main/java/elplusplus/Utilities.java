@@ -25,6 +25,12 @@ public class Utilities
 	
 	static boolean isInBC(OWLClassExpression expression)
 	{
+		if(expression.isTopEntity())
+			return true;
+		else if(expression.isBottomEntity())
+			return false;
+		else if(expression.isIndividual())
+			return true;
 		switch(expression.getClassExpressionType())
 		{
 			case OWL_CLASS:
