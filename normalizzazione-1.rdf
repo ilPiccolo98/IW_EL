@@ -48,27 +48,33 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B1 -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B1"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B2 -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B2"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1 -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2 -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
     
 
 
@@ -80,37 +86,29 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:Restriction>
-        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
-        <owl:someValuesFrom>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:someValuesFrom>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#g"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B1"/>
-                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B2"/>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Restriction>
+    </owl:Class>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B1"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B2"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

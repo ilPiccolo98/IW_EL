@@ -110,18 +110,33 @@ public class Normalizer
                 	System.out.println("Simplified but we need the phase 2");
                 	phaseTwoExpressions.add(current_gci);
                 }
-                //se ci sono pià di 2 operatori e almeno 1 è in forma normale applica NF2
-                else if(operands.size() >= 2 && isThereSomeBCOperandInConjunction(operands) && Utilities.isInBC(operands.get(1)))
+                //se ci sono più di 2 operatori applica NF2
+                else if(operands.size() >= 2)
                 {
                 	System.out.println("Some operands are not in DC");
-                	OWLClassExpression BCoperand = getOperandInBCFromConjunction(operands);
-                	operands.remove(BCoperand);
+                	OWLClassExpression operandToInclude = getOperandInBCFromConjunction(operands);
+                	//se operandToInclude != null allora almeno 1 operando è in BC
+                	if(operandToInclude != null)
+                		operands.remove(operandToInclude);
+                	//altrimenti ci sono tutti esistenziali
+                	else
+                	{
+                		operandToInclude = operands.getFirst();
+                		operands.removeFirst();
+                	}
                 	String uniqueID = UUID.randomUUID().toString();
                 	OWLClass newName = dataFactory.getOWLClass(IOR + "#newName" + uniqueID);
-                	OWLObjectIntersectionOf newIntersection1 = dataFactory.getOWLObjectIntersectionOf(BCoperand, newName);
-                	OWLObjectIntersectionOf newIntersection2 = dataFactory.getOWLObjectIntersectionOf(operands);
+                	OWLObjectIntersectionOf newIntersection1 = dataFactory.getOWLObjectIntersectionOf(operandToInclude, newName);
                 	phaseOneExpressions.add(new GCI(newIntersection1, rhs));
-                    phaseOneExpressions.add(new GCI(newIntersection2, newName));
+                	//se operands.size() > 1 allora esegui l'intersezione degli operandi
+                	if(operands.size() > 1)
+                	{                		
+                		OWLObjectIntersectionOf newIntersection2 = dataFactory.getOWLObjectIntersectionOf(operands);
+                		phaseOneExpressions.add(new GCI(newIntersection2, newName));
+                	}
+                	//altrimenti non fare nulla
+                	else
+                		phaseOneExpressions.add(new GCI(operands.getFirst(), newName));
                 }
                 //nessuna regola da applicare, passa alla fase 2
                 else
