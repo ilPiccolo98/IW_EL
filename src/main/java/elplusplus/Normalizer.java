@@ -98,14 +98,20 @@ public class Normalizer
 				System.out.println("Third if");
 				OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) lhs;
                 ArrayList<OWLClassExpression> operands = new ArrayList<OWLClassExpression>(intersection.getOperands());
-                //se gli operandi della congiunzione sono in BC è in forma normale
-                if(operands.size() == 2 && Utilities.isInBC(operands.get(0)) && Utilities.isInBC(operands.get(1)))
+                //se lhs ha 2 operandi in BC e rhs è in BC è in forma normale
+                if(operands.size() == 2 && Utilities.isInBC(operands.get(0)) && Utilities.isInBC(operands.get(1)) && Utilities.isInBC(rhs))
                 {
                 	System.out.println("It's in normal form");
                 	normalizedExpressions.add(current_gci);
                 }
+                //se lhs ha 2 operandi in BC e rhs non è in BC passa alla fase 2
+                else if(operands.size() == 2 && Utilities.isInBC(operands.get(0)) && Utilities.isInBC(operands.get(1)) && !Utilities.isInBC(rhs))
+                {
+                	System.out.println("Simplified but we need the phase 2");
+                	phaseTwoExpressions.add(current_gci);
+                }
                 //se ci sono pià di 2 operatori e almeno 1 è in forma normale applica NF2
-                else if(operands.size() >= 2 && isThereSomeBCOperandInConjunction(operands))
+                else if(operands.size() >= 2 && isThereSomeBCOperandInConjunction(operands) && Utilities.isInBC(operands.get(1)))
                 {
                 	System.out.println("Some operands are not in DC");
                 	OWLClassExpression BCoperand = getOperandInBCFromConjunction(operands);
@@ -119,7 +125,10 @@ public class Normalizer
                 }
                 //nessuna regola da applicare, passa alla fase 2
                 else
+                {
+                	System.out.println("No rule to apply, phase 2");
                 	phaseTwoExpressions.add(current_gci);
+                }
 			}
 			//l'operatore a sinistra è un esistenziale
 			else if(lhs.getClassExpressionType() == ClassExpressionType.OBJECT_SOME_VALUES_FROM)
