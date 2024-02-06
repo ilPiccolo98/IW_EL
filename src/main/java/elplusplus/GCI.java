@@ -20,6 +20,11 @@ public class GCI
 		return superClass;
 	}
 	
+	public String toString()
+	{
+		return "Subclass: " + subClass.toString() + "; Superclass: " + superClass.toString();
+	}
+	
 	private OWLClassExpression subClass;
 	private OWLClassExpression superClass;
 }

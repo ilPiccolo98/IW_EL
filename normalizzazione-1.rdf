@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1/"
+     xml:base="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C10 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C10"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C11 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C11"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C12 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C12"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C3">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C4"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C4 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C4"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C5 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C5"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C6 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C6"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C7 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C7"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Nothing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C12"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C7"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C1"/>
+    </owl:Class>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C5"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C6"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

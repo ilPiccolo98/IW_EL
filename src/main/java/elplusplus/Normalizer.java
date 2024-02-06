@@ -19,26 +19,54 @@ import org.semanticweb.owlapi.model.OWLOntology;
 
 public class Normalizer 
 {
-	public Normalizer(OWLOntology ontology, OWLDataFactory dataFactory, Set<GCI> expressions, IRI IOR)
+	public Normalizer(OWLOntology ontology, OWLDataFactory dataFactory, Set<GCI> expressions)
 	{
 		this.ontology = ontology;
 		this.phaseOneExpressions = new LinkedList<GCI>(expressions);
 		this.phaseTwoExpressions = new LinkedList<GCI>();
 		normalizedExpressions = new HashSet<GCI>();
 		this.dataFactory = dataFactory;
-		this.IOR = IOR;
+		this.IOR = ontology.getOntologyID().getOntologyIRI().get();
+	}
+	
+	public void execute()
+	{
+		PhaseOne();
+	}
+	
+	public Set<GCI> getNormalizedExpressions()
+	{
+		return normalizedExpressions;
+	}
+	
+	public Set<GCI> Expressions()
+	{
+		return new HashSet<GCI>(phaseOneExpressions);
+	}
+	
+	public void setExpressions(Set<GCI> expressions)
+	{
+		this.phaseOneExpressions = new LinkedList<GCI>(expressions);
+	}
+	
+	public Set<GCI> getPhaseTwoExpressions()
+	{
+		return new HashSet<GCI>(phaseTwoExpressions);
 	}
 	
 	private void PhaseOne()
 	{
+		System.out.println("Phase One algorithm------------------");
 		while(!phaseOneExpressions.isEmpty())
 		{
 			GCI current_gci = phaseOneExpressions.element();
+			System.out.println("Current formula: " + current_gci);
 			phaseOneExpressions.remove();
 			OWLClassExpression lhs = current_gci.getSubClass();
 			OWLClassExpression rhs = current_gci.getSuperClass();
-			if(lhs.isTopEntity() || lhs.isOWLClass() || lhs.isIndividual())
+			if((lhs.isTopEntity() || lhs.isOWLClass() || lhs.isIndividual()) && !lhs.isBottomEntity())
 			{
+				System.out.println("First if");
 				//L'operatore a destra è bottom o classe o individuo
 				//qindi è in forma normale
 				if(rhs.isBottomEntity() || rhs.isOWLClass() || rhs.isIndividual() ||  rhs.isTopEntity())
@@ -59,33 +87,35 @@ public class Normalizer
 				else
 					phaseTwoExpressions.add(current_gci);
 			}
+			//l'operatore a sinistra è il bottom
+			else if(lhs.isBottomEntity())
+			{
+				System.out.println("Second if");
+			}
 			//l'operatore a sinistra è una congiunzione
 			else if(lhs.getClassExpressionType() == ClassExpressionType.OBJECT_INTERSECTION_OF)
 			{
+				System.out.println("Third if");
 				OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) lhs;
                 ArrayList<OWLClassExpression> operands = new ArrayList<OWLClassExpression>(intersection.getOperands());
-                OWLClassExpression leftOperand = operands.get(0);
-                OWLClassExpression rightOperand = operands.get(1);
                 //se gli operandi della congiunzione sono in BC è in forma normale
-                if(Utilities.isInBC(leftOperand) && Utilities.isInBC(rightOperand))
+                if(operands.size() == 2 && Utilities.isInBC(operands.get(0)) && Utilities.isInBC(operands.get(1)))
+                {
+                	System.out.println("It's in normal form");
                 	normalizedExpressions.add(current_gci);
-                //se l'operatore a sx della congiunzione non è in BC applica NF2
-                else if(!Utilities.isInBC(leftOperand))
-                {
-                	String uniqueID = UUID.randomUUID().toString();
-                	OWLClass newName = dataFactory.getOWLClass(IOR + "#newName" + uniqueID);
-                	OWLObjectIntersectionOf newIntersection = dataFactory.getOWLObjectIntersectionOf(rightOperand, newName);
-                    phaseOneExpressions.add(new GCI(newIntersection, rhs));
-                    phaseOneExpressions.add(new GCI(leftOperand, newName));
                 }
-                //se l'operatore a dx della congiunzione non è in BC applica NF2
-                else if(!Utilities.isInBC(rightOperand))
+                //se ci sono pià di 2 operatori e almeno 1 è in forma normale applica NF2
+                else if(operands.size() >= 2 && isThereSomeBCOperandInConjunction(operands))
                 {
+                	System.out.println("Some operands are not in DC");
+                	OWLClassExpression BCoperand = getOperandInBCFromConjunction(operands);
+                	operands.remove(BCoperand);
                 	String uniqueID = UUID.randomUUID().toString();
                 	OWLClass newName = dataFactory.getOWLClass(IOR + "#newName" + uniqueID);
-                	OWLObjectIntersectionOf newIntersection = dataFactory.getOWLObjectIntersectionOf(leftOperand, newName);
-                	phaseOneExpressions.add(new GCI(newIntersection, rhs));
-                	phaseOneExpressions.add(new GCI(rightOperand, newName));
+                	OWLObjectIntersectionOf newIntersection1 = dataFactory.getOWLObjectIntersectionOf(BCoperand, newName);
+                	OWLObjectIntersectionOf newIntersection2 = dataFactory.getOWLObjectIntersectionOf(operands);
+                	phaseOneExpressions.add(new GCI(newIntersection1, rhs));
+                    phaseOneExpressions.add(new GCI(newIntersection2, newName));
                 }
                 //nessuna regola da applicare, passa alla fase 2
                 else
@@ -94,6 +124,7 @@ public class Normalizer
 			//l'operatore a sinistra è un esistenziale
 			else if(lhs.getClassExpressionType() == ClassExpressionType.OBJECT_SOME_VALUES_FROM)
 			{
+				System.out.println("Fourth if");
 				OWLObjectSomeValuesFrom someValuesFrom = (OWLObjectSomeValuesFrom) lhs;
 				OWLClassExpression filler = someValuesFrom.getFiller();
 				//Se l'espressione è in forma normale
@@ -193,6 +224,24 @@ public class Normalizer
 				}
 			}
 		}
+	}
+	
+	private OWLClassExpression getOperandInBCFromConjunction(ArrayList<OWLClassExpression> operands)
+	{
+		for(OWLClassExpression operand : operands)
+		{
+			if(Utilities.isInBC(operand))
+				return operand;			
+		}
+		return null;
+	}
+	
+	private boolean isThereSomeBCOperandInConjunction(ArrayList<OWLClassExpression> operands)
+	{
+		for(OWLClassExpression operand : operands)
+			if(Utilities.isInBC(operand))
+				return true;
+		return false;
 	}
 	
 	private OWLOntology ontology;
