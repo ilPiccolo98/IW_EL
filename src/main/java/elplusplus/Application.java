@@ -46,7 +46,7 @@ public class Application
         Set<GCI> gcis = Utilities.getGCIs(ontology);
         for(GCI gci: gcis)
         	System.out.println(gci.toString());
-        Normalizer normalizer = new Normalizer(ontology, dataFactory, gcis);
+        Normalizer normalizer = new Normalizer(ontology, gcis);
         normalizer.execute();
         Set<GCI> normalizedExpressions = normalizer.getNormalizedExpressions();
         System.out.println("Normalized Expressions-----------------------------------");
@@ -56,35 +56,5 @@ public class Application
         Set<GCI> secondPhaseQueue = normalizer.getPhaseTwoExpressions();
         for(GCI gci: secondPhaseQueue)
         	System.out.println(gci.toString());
-        
-        /*for (OWLAxiom axiom : ontology.getAxioms()) 
-        {
-        	if (axiom instanceof OWLSubClassOfAxiom)
-        	{
-        		OWLSubClassOfAxiom subClassAxiom = (OWLSubClassOfAxiom) axiom;
-        		System.out.println("");
-                OWLClassExpression superClass = subClassAxiom.getSuperClass();
-                System.out.println("Superclass of " + owlClass + ": " + superClass);
-                    
-                OWLClassExpression subClass = subClassAxiom.getSubClass();
-                System.out.println("Subclass of " + owlClass + ": " + subClass);
-
-                    // Verifica se la superclasse coinvolge una proprietà di oggetto
-                if (superClass instanceof OWLObjectSomeValuesFrom) 
-                {
-                    OWLObjectSomeValuesFrom someValuesFrom = (OWLObjectSomeValuesFrom) superClass;
-                    OWLObjectPropertyExpression objectProperty = someValuesFrom.getProperty();
-                    System.out.println("Superclass object Property associated with " + owlClass + ": " + objectProperty);
-                }
-                // Verifica se la sottoclass coinvolge una proprietà di oggetto
-                if (subClass instanceof OWLObjectSomeValuesFrom) 
-                {
-                     OWLObjectSomeValuesFrom someValuesFrom = (OWLObjectSomeValuesFrom) subClass;
-                     OWLObjectPropertyExpression objectProperty = someValuesFrom.getProperty();
-                     System.out.println("Subclass object Property associated with " + owlClass + ": " + objectProperty);
-                }
-        	}
-        }*/
-        
 	}
 }

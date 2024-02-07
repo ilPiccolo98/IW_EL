@@ -21,9 +21,25 @@
     
 
 
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#e -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#e">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#g -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#g">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#h -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#h">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
@@ -50,31 +66,15 @@
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
     
 
 
@@ -86,31 +86,21 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:Class>
-        <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
-        </owl:intersectionOf>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#g"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#h"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#E"/>
-        </owl:members>
-    </rdf:Description>
+    </owl:Restriction>
 </rdf:RDF>
 
 
