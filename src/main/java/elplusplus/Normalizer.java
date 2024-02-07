@@ -175,7 +175,6 @@ public class Normalizer
 			//se lhs e rhs non sono in BC applica NF5
 			if(!Utilities.isInBC(lhs) && !Utilities.isInBC(rhs))
 			{
-				System.out.println("First if");
 				String uniqueID = UUID.randomUUID().toString();
             	OWLClass newName = dataFactory.getOWLClass(IOR + "#newName" + uniqueID);
             	phaseTwoExpressions.add(new GCI(lhs, newName, current_gci.getSubclassType()));

@@ -64,6 +64,30 @@
     
 
 
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+    
+
+
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore">
@@ -146,6 +170,41 @@
             </owl:Restriction>
         </rdf:type>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#C"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#D"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
