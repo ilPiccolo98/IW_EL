@@ -52,9 +52,5 @@ public class Application
         System.out.println("Normalized Expressions-----------------------------------");
         for(GCI gci: normalizedExpressions)
         	System.out.println(gci.toString());
-        System.out.println("Second Phase Queue Expressions-----------------------------------");
-        Set<GCI> secondPhaseQueue = normalizer.getPhaseTwoExpressions();
-        for(GCI gci: secondPhaseQueue)
-        	System.out.println(gci.toString());
 	}
 }

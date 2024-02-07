@@ -4,7 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLIndividualAxiom;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
@@ -23,6 +26,20 @@ public class Utilities
         }
 		return gcis;
 	}
+	
+	/*static Set<GCI> getIndividuals(OWLOntology ontology)
+	{
+		Set<GCI> gcis = new HashSet<GCI>();
+		Set<OWLNamedIndividual> individuals = ontology.getIndividualsInSignature();	
+		AxiomType.t
+		for(OWLNamedIndividual individual : individuals)
+		{
+			Set<OWLClass> classesOfIndividual = individual.getClassesInSignature();
+			for(OWLClass classOfIndividual : classesOfIndividual)
+				gcis.add(new GCI(individual, classOfIndividual));
+		}
+		return gcis;
+	}*/
 	
 	static boolean isInBC(OWLClassExpression expression)
 	{
