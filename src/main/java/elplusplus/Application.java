@@ -9,15 +9,19 @@ import org.semanticweb.HermiT.ReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.SystemOutDocumentTarget;
 import org.semanticweb.owlapi.model.AddAxiom;
+import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.HasObjectPropertiesInSignature;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
@@ -43,7 +47,7 @@ public class Application
         OWLReasoner reasoner = rf.createReasoner(ontology);
         OWLDataFactory dataFactory = manager.getOWLDataFactory();
         Optional<IRI> ontologyIRI = ontology.getOntologyID().getOntologyIRI();
-        Set<GCI> gcis = Utilities.getGCIs(ontology);
+        Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
         for(GCI gci: gcis)
         	System.out.println(gci.toString());
         Normalizer normalizer = new Normalizer(ontology, gcis);

@@ -64,18 +64,17 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona"/>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Professore -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Professore">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Studente"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Persona"/>
     
 
 
@@ -98,9 +97,24 @@
     
 
 
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Alberto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Alberto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Studente"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Giovanni -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Giovanni">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore"/>
         <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Studente"/>
     </owl:NamedIndividual>
     
@@ -114,10 +128,23 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Marco -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Mario -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Marco">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Professore"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Mario">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Lavoratore"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Matteo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Matteo">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#Studente"/>
+            </owl:Restriction>
+        </rdf:type>
     </owl:NamedIndividual>
 </rdf:RDF>
 
