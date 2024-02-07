@@ -50,11 +50,6 @@ public class Normalizer
 		this.phaseOneExpressions = new LinkedList<GCI>(expressions);
 	}
 	
-	public Set<GCI> getPhaseTwoExpressions()
-	{
-		return new HashSet<GCI>(phaseTwoExpressions);
-	}
-	
 	private void PhaseOne()
 	{
 		while(!phaseOneExpressions.isEmpty())
@@ -93,7 +88,6 @@ public class Normalizer
 			//l'operatore a sinistra è una congiunzione
 			else if(lhs.getClassExpressionType() == ClassExpressionType.OBJECT_INTERSECTION_OF)
 			{
-				System.out.println("Third if");
 				OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) lhs;
                 ArrayList<OWLClassExpression> operands = new ArrayList<OWLClassExpression>(intersection.getOperands());
                 //se lhs ha 2 operandi in BC e rhs è in BC è in forma normale
