@@ -5,10 +5,7 @@ import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ELPlusPlusReasoner {
     private final Set<GCI> normalizedGCIs;
@@ -25,6 +22,125 @@ public class ELPlusPlusReasoner {
 
         initializeMappingS();
         initializeMappingR();
+    }
+
+    private void useCompletionRules(){
+        while(true){
+            boolean change = false;
+            for (GCI gci: normalizedGCIs) {
+                if (isCR1Applied(gci)){
+                    change = true;
+                } else if (isCR2Applied(gci)){
+                    change = true;
+                } else if (isCR3Applied(gci)){
+                    change = true;
+                } else if (isCR4Applied(gci)){
+                    change = true;
+                } else if (isCR5Applied(gci)) {
+                    change = true;
+                } else if (isCR6Applied(gci)){
+                    change = true;
+                } else {
+                    change = false;
+                }
+            }
+        }
+    }
+
+    private boolean isCR1Applied(GCI gci) {
+        OWLObject lhs = gci.getSubClass(); // C'
+        OWLObject rhs = gci.getSuperClass(); // D
+        // checks if lhs and rhs are simple concepts
+        if (lhs instanceof OWLClass && rhs instanceof OWLClass){
+            Map<OWLObject, OWLObject> toBeAddedToMappingS = new HashMap<>();
+            mappingS.forEach((C, S_di_C) -> {
+                if (S_di_C.contains(lhs) && !S_di_C.contains(rhs)){
+                    toBeAddedToMappingS.put(C, rhs);
+                }
+            });
+            toBeAddedToMappingS.forEach((C, D) -> mappingS.get(C).add(D));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCR2Applied(GCI gci) {
+        OWLObject lhs = gci.getSubClass(); // C1 ∩ C2
+        OWLObject rhs = gci.getSuperClass(); // D
+        // checks if lhs is an intersection and rhs is a simple concept
+        if (lhs instanceof OWLObjectIntersectionOf && rhs instanceof OWLClass) {
+            // checks if all the elements of the intersection are in S(C)
+            List<OWLClassExpression> operands = ((OWLObjectIntersectionOf) lhs).getOperandsAsList();
+            OWLObject C1 = operands.get(0);
+            OWLObject C2 = operands.get(1);
+            Map<OWLObject, OWLObject> toBeAddedToMappingS = new HashMap<>();
+            mappingS.forEach((C, S_di_C) -> {
+                if (S_di_C.contains(C1) && S_di_C.contains(C2) && !S_di_C.contains(rhs)){
+                    toBeAddedToMappingS.put(C, rhs);
+                }
+            });
+            toBeAddedToMappingS.forEach((C, D) -> mappingS.get(C).add(D));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCR3Applied(GCI gci) {
+        OWLObject lhs = gci.getSubClass(); // C1
+        OWLObject rhs = gci.getSuperClass(); // ∃r.D
+        // checks if lhs is a simple concept and rhs is an existential restriction
+        if (lhs instanceof OWLClass && rhs instanceof OWLObjectSomeValuesFrom) {
+            // checks if the tuple (C,D) is not in mappingR for the property r
+            OWLObject D = ((OWLObjectSomeValuesFrom) rhs).getFiller();
+            OWLProperty r = ((OWLObjectProperty) ((OWLObjectSomeValuesFrom) rhs).getProperty());
+            mappingS.forEach((C, S_di_C) -> {
+                Tuple<OWLObject, OWLObject> C_D = new Tuple<>(C, D);
+                Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
+                if (S_di_C.contains(lhs) && (R_di_r == null || !R_di_r.contains(C_D))){
+                    if (R_di_r == null){ // credo non possa succedere
+                        R_di_r = new HashSet<>();
+                        mappingR.put(r, R_di_r);
+                    }
+                    R_di_r.add(C_D);
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCR4Applied(GCI gci) {
+        OWLObject lhs = gci.getSubClass(); // ∃r.D'
+        OWLObject rhs = gci.getSuperClass(); // E
+
+        if (lhs instanceof OWLObjectSomeValuesFrom && rhs instanceof OWLClass) {
+            OWLObject D_primo = ((OWLObjectSomeValuesFrom) lhs).getFiller();
+            OWLProperty r = ((OWLObjectProperty) ((OWLObjectSomeValuesFrom) lhs).getProperty());
+            Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
+            R_di_r.forEach(C_D -> {
+                OWLObject C = C_D.getFirst();
+                OWLObject D = C_D.getSecond();
+                Set<OWLObject> S_di_D = mappingS.get(D);
+                Set<OWLObject> S_di_C = mappingS.get(C);
+                if (S_di_D.contains(D_primo) && !S_di_C.contains(rhs)){
+                    S_di_C.add(rhs);
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean isCR5Applied(GCI gci) {
+        return false;
+    }
+
+    private boolean isCR6Applied(GCI gci) {
+        return false;
     }
 
     private void initializeMappingR() {
