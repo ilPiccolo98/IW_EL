@@ -117,8 +117,8 @@ public class Normalizer
 	                	//altrimenti ci sono tutti esistenziali
 	                	else
 	                	{
-	                		operandToInclude = operands.getFirst();
-	                		operands.removeFirst();
+	                		operandToInclude = operands.get(0);
+	                		operands.remove(0);
 	                	}
 	                	String uniqueID = UUID.randomUUID().toString();
 	                	OWLClass newName = dataFactory.getOWLClass(IOR + "#newName" + uniqueID);
@@ -132,7 +132,7 @@ public class Normalizer
 	                	}
 	                	//altrimenti non fare nulla
 	                	else
-	                		phaseOneExpressions.add(new GCI(operands.getFirst(), newName, "expression"));
+	                		phaseOneExpressions.add(new GCI(operands.get(0), newName, "expression"));
 	                }
 	                //nessuna regola da applicare, passa alla fase 2
 	                else
@@ -213,8 +213,8 @@ public class Normalizer
                 //altrimenti ci sono solo operatori esistenziali
                 else
                 {
-                	superClassOperand = operands.getFirst();
-                	operands.removeFirst();
+                	superClassOperand = operands.get(0);
+                	operands.remove(0);
                 }
                 phaseTwoExpressions.add(new GCI(lhs, superClassOperand, current_gci.getSubclassType()));
                 //se sono rimasti più di 1 operatore crea l'intersezione
@@ -225,7 +225,7 @@ public class Normalizer
                 }
                 //altrimenti crea direttamente l'inclusione
                 else
-                	phaseTwoExpressions.add(new GCI(lhs, operands.getFirst(), current_gci.getSubclassType()));
+                	phaseTwoExpressions.add(new GCI(lhs, operands.get(0), current_gci.getSubclassType()));
 			}
 			else
 			{
