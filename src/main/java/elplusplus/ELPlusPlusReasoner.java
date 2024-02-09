@@ -6,7 +6,6 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ELPlusPlusReasoner {
     private final Set<GCI> normalizedGCIs;
@@ -26,8 +25,8 @@ public class ELPlusPlusReasoner {
     }
 
     private void useCompletionRules(){
-        while(true){
-            boolean change = false;
+        boolean change = false;
+        do {
             for (GCI gci: normalizedGCIs) {
                 if (isCR1Applied(gci)){
                     change = true;
@@ -37,15 +36,12 @@ public class ELPlusPlusReasoner {
                     change = true;
                 } else if (isCR4Applied(gci)){
                     change = true;
-                } else if (isCR5Applied(gci)) {
-                    change = true;
-                } else if (isCR6Applied(gci)){
-                    change = true;
                 } else {
                     change = false;
                 }
             }
-        }
+        } while (change);
+        applyCR5();
     }
 
     private boolean isCR1Applied(GCI gci) {
@@ -136,8 +132,7 @@ public class ELPlusPlusReasoner {
         }
     }
 
-    private boolean isCR5Applied() {
-        AtomicBoolean done = new AtomicBoolean(false);
+    private boolean applyCR5() {
         mappingR.forEach((r, R_di_r) -> {
             R_di_r.forEach(C_D -> {
                 OWLObject C = C_D.getFirst();
@@ -147,14 +142,12 @@ public class ELPlusPlusReasoner {
                 OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
                 if (S_di_D.contains(bottom) && !S_di_C.contains(bottom)) {
                     S_di_C.add(bottom);
-                    done.set(true);
                 }
             });
         });
-        return done.get();
     }
 
-    private boolean isCR6Applied(GCI gci) {
+    private boolean applyCR6() {
         return false;
     }
 
