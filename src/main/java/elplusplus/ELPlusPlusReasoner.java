@@ -47,6 +47,7 @@ public class ELPlusPlusReasoner {
         applyCR5();
         initGraph();
         initReachabilityMatrix();
+        applyCR6();
     }
 
     private boolean isCR1Applied(GCI gci) {
@@ -153,6 +154,26 @@ public class ELPlusPlusReasoner {
     }
 
     private void applyCR6() {
+    	ArrayList<OWLObject> classes = new ArrayList<OWLObject>(mappingS.keySet());
+    	for(OWLIndividual individual : individuals)
+    		for(int i = 0; i != classes.size(); ++i)
+    			if(mappingS.get(classes.get(i)).contains(individual))
+    				for(int j = i + 1; j != classes.size(); ++j)
+    					if(mappingS.get(classes.get(j)).contains(individual))
+    					{
+    						if(arrowRelationGraph.hasPathBetween(classes.get(i), classes.get(j)))
+    						{
+    							Set<OWLObject> newValue = mappingS.get(classes.get(i));
+    							newValue.addAll(mappingS.get(classes.get(j)));
+    							mappingS.put(classes.get(i), newValue);
+    						}
+    						if(arrowRelationGraph.hasPathBetween(classes.get(j), classes.get(i)))
+    						{
+    							Set<OWLObject> newValue = mappingS.get(classes.get(j));
+    							newValue.addAll(mappingS.get(classes.get(i)));
+    							mappingS.put(classes.get(j), newValue);
+    						}
+    					}
     }
 
     private boolean arrowRelationMatches(OWLObject C, OWLObject D){
