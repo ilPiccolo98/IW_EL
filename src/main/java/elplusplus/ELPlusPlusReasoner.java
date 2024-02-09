@@ -6,6 +6,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ELPlusPlusReasoner {
     private final Set<GCI> normalizedGCIs;
@@ -135,8 +136,22 @@ public class ELPlusPlusReasoner {
         }
     }
 
-    private boolean isCR5Applied(GCI gci) {
-        return false;
+    private boolean isCR5Applied() {
+        AtomicBoolean done = new AtomicBoolean(false);
+        mappingR.forEach((r, R_di_r) -> {
+            R_di_r.forEach(C_D -> {
+                OWLObject C = C_D.getFirst();
+                OWLObject D = C_D.getSecond();
+                Set<OWLObject> S_di_C = mappingS.get(C);
+                Set<OWLObject> S_di_D = mappingS.get(D);
+                OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
+                if (S_di_D.contains(bottom) && !S_di_C.contains(bottom)) {
+                    S_di_C.add(bottom);
+                    done.set(true);
+                }
+            });
+        });
+        return done.get();
     }
 
     private boolean isCR6Applied(GCI gci) {
