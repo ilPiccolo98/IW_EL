@@ -1,8 +1,10 @@
 package elplusplus;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 public class Graph<T> {
     private Map<T, List<T>> adjacencyList;
@@ -75,5 +77,19 @@ public class Graph<T> {
             throw new RuntimeException("Destination vertex does not exist");
         }
         adjacencyList.get(source).remove(destination);
+    }
+    
+    public boolean BFS(T source, T destination)
+    {
+    	Queue<T> queue = new LinkedList<T>();
+    	queue.add(source);
+    	while(!queue.isEmpty())
+    	{
+    		T current_node = queue.remove();
+    		for(T adjacent_node : adjacencyList.get(current_node))
+    			if(adjacent_node.equals(destination))
+    				return true;
+    	}
+    	return false;
     }
 }
