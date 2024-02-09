@@ -183,8 +183,14 @@
 
     <owl:Class>
         <owl:intersectionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#g"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#B"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/normalization-1#A"/>
+            </owl:Restriction>
         </owl:intersectionOf>
         <rdfs:subClassOf>
             <owl:Class>
