@@ -1,10 +1,12 @@
 package elplusplus;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 public class Graph<T> {
     private Map<T, List<T>> adjacencyList;
@@ -79,17 +81,21 @@ public class Graph<T> {
         adjacencyList.get(source).remove(destination);
     }
     
-    public boolean BFS(T source, T destination)
+    public Set<T> BFS(T source)
     {
     	Queue<T> queue = new LinkedList<T>();
+    	Set<T> reachedNodes = new HashSet<T>();
     	queue.add(source);
     	while(!queue.isEmpty())
     	{
     		T current_node = queue.remove();
     		for(T adjacent_node : adjacencyList.get(current_node))
-    			if(adjacent_node.equals(destination))
-    				return true;
+    			if(!reachedNodes.contains(adjacent_node))
+    			{
+    				queue.add(adjacent_node);
+    				reachedNodes.add(adjacent_node);
+    			}
     	}
-    	return false;
+    	return reachedNodes;
     }
 }
