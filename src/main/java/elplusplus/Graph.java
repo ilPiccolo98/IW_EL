@@ -1,15 +1,10 @@
 package elplusplus;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 public class Graph<T> {
     private Map<T, List<T>> adjacencyList;
+    private Map<T, Set<T>> reachableNodes;
 
     public boolean addVertex(T vertex) {
         if (!adjacencyList.containsKey(vertex)) {
@@ -72,6 +67,7 @@ public class Graph<T> {
         for (T v : adjacencyList.keySet()) {
             adjacencyList.get(v).remove(vertex);
         }
+        reachableNodes.clear();
     }
 
     public void removeEdge(T source, T destination) {
@@ -82,9 +78,10 @@ public class Graph<T> {
             throw new RuntimeException("Destination vertex does not exist");
         }
         adjacencyList.get(source).remove(destination);
+        reachableNodes.clear();
     }
-    
-    public Set<T> BFS(T source)
+
+    private Set<T> BFS(T source)
     {
     	Queue<T> queue = new LinkedList<T>();
     	Set<T> reachedNodes = new HashSet<T>();
@@ -100,5 +97,12 @@ public class Graph<T> {
     			}
     	}
     	return reachedNodes;
+    }
+
+    public boolean hasPathBetween(T source, T destination){
+        if (!reachableNodes.containsKey(source)){
+            reachableNodes.put(source, BFS(source));
+        }
+        return reachableNodes.get(source).contains(destination);
     }
 }
