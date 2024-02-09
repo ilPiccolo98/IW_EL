@@ -148,9 +148,15 @@ public class ELPlusPlusReasoner {
         });
     }
 
-    private boolean applyCR6() {
-        return false;
+    private void applyCR6() {
+
     }
+
+    private boolean arrowRelationMatches(OWLObject C, OWLObject D){
+        // todo: si deve fare qualche altro check?
+        return arrowRelationGraph.hasPathBetween(C, D);
+    }
+
     private void initGraph(){
         for (OWLProperty r : mappingR.keySet()){
             Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
