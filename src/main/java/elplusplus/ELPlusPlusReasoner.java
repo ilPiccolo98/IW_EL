@@ -14,12 +14,14 @@ public class ELPlusPlusReasoner {
     private final Graph<OWLObject> arrowRelationGraph = new Graph<>();
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
+    private Set<OWLIndividual> individuals;
 
-    public ELPlusPlusReasoner(OWLOntology ontology, Set<GCI> normalizedGCIs){
+    public ELPlusPlusReasoner(OWLOntology ontology, Set<GCI> normalizedGCIs, Set<OWLIndividual> individuals){
         this.ontology = ontology;
         this.normalizedGCIs = normalizedGCIs;
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
+        this.individuals = individuals;
 
         initializeMappingS();
         initializeMappingR();
@@ -43,6 +45,8 @@ public class ELPlusPlusReasoner {
             }
         } while (change);
         applyCR5();
+        initGraph();
+        initReachabilityMatrix();
     }
 
     private boolean isCR1Applied(GCI gci) {
@@ -149,7 +153,6 @@ public class ELPlusPlusReasoner {
     }
 
     private void applyCR6() {
-
     }
 
     private boolean arrowRelationMatches(OWLObject C, OWLObject D){
@@ -168,6 +171,12 @@ public class ELPlusPlusReasoner {
                 arrowRelationGraph.addEdge(C, D);
             });
         }
+    }
+    
+    private void initReachabilityMatrix()
+    {
+    	for(OWLObject source : mappingS.keySet())
+    		arrowRelationGraph.initAdjacentNodes(source);
     }
 
     private void initializeMappingR() {

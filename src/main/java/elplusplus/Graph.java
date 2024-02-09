@@ -98,11 +98,14 @@ public class Graph<T> {
     	}
     	return reachedNodes;
     }
+    
+    public void initAdjacentNodes(T source)
+    {
+    	reachableNodes.put(source, BFS(source));
+    }
 
-    public boolean hasPathBetween(T source, T destination){
-        if (!reachableNodes.containsKey(source)){
-            reachableNodes.put(source, BFS(source));
-        }
+    public boolean hasPathBetween(T source, T destination)
+    {
         return reachableNodes.get(source).contains(destination);
     }
 }

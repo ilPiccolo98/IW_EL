@@ -20,6 +20,7 @@ import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObject;
 import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
@@ -53,6 +54,7 @@ public class Application
         Normalizer normalizer = new Normalizer(ontology, gcis);
         normalizer.execute();
         Set<GCI> normalizedExpressions = normalizer.getNormalizedExpressions();
+        Set<OWLIndividual> individuals = Utilities.getIndividualFromNormalizedCbox(normalizedExpressions);
         System.out.println("Normalized Expressions-----------------------------------");
         for(GCI gci: normalizedExpressions)
         	System.out.println(gci.toString());
