@@ -27,7 +27,10 @@ public class Graph<T> {
         if (!adjacencyList.containsKey(destination)) {
             throw new RuntimeException("Destination vertex does not exist");
         }
-        adjacencyList.get(source).add(destination);
+        List<T> sourceNeighbours = adjacencyList.get(source);
+        if (!sourceNeighbours.contains(destination)) {
+            sourceNeighbours.add(destination);
+        }
     }
 
     public boolean hasVertex(T vertex) {
