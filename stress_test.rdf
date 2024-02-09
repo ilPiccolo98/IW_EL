@@ -1,0 +1,675 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30/"
+     xml:base="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r10 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r10">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r11 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r11">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r2">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r3">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r4">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r5 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r5">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r6 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r6">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r7 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r7">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r8 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r8">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r9 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r9">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A24 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A24"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A25 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A25"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A26 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A26"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A27 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A27"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A28 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A28"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A29 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A29"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Nothing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A26"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A27"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A29"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r11"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A28"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A26"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A27"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r3"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r5"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r6"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r7"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r8"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r2"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r1"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r4"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r7"/>
+        <owl:someValuesFrom>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:someValuesFrom>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A29"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r11"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A28"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r8"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r10"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A25"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#r9"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A24"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Restriction>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A24"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A25"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A26"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A27"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A28"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A29"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A16"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A17"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A18"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A19"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A20"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A21"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A22"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A23"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A11"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A12"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A13"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A14"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A15"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+            <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A10"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A7"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A8"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A9"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A2"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A3"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A4"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A5"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-30#A6"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
