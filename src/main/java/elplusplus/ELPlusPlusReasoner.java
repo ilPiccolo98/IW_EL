@@ -132,7 +132,7 @@ public class ELPlusPlusReasoner {
         }
     }
 
-    private boolean applyCR5() {
+    private void applyCR5() {
         mappingR.forEach((r, R_di_r) -> {
             R_di_r.forEach(C_D -> {
                 OWLObject C = C_D.getFirst();
