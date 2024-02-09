@@ -11,6 +11,7 @@ public class ELPlusPlusReasoner {
     private final Set<GCI> normalizedGCIs;
     private final OWLOntology ontology;
     private final OWLReasoner reasoner;
+    private final Graph<OWLObject> arrowRelationGraph = new Graph<>();
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
 
@@ -149,6 +150,18 @@ public class ELPlusPlusReasoner {
 
     private boolean applyCR6() {
         return false;
+    }
+    private void initGraph(){
+        for (OWLProperty r : mappingR.keySet()){
+            Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
+            R_di_r.forEach(C_D -> {
+                OWLObject C = C_D.getFirst();
+                OWLObject D = C_D.getSecond();
+                arrowRelationGraph.addVertex(C);
+                arrowRelationGraph.addVertex(D);
+                arrowRelationGraph.addEdge(C, D);
+            });
+        }
     }
 
     private void initializeMappingR() {
