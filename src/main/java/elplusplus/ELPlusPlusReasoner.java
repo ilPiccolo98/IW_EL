@@ -171,13 +171,11 @@ public class ELPlusPlusReasoner {
     						{
     							Set<OWLObject> newValue = mappingS.get(classes.get(i));
     							newValue.addAll(mappingS.get(classes.get(j)));
-    							mappingS.put(classes.get(i), newValue);
     						}
     						if(arrowRelationGraph.hasPathBetween(classes.get(j), classes.get(i)))
     						{
     							Set<OWLObject> newValue = mappingS.get(classes.get(j));
     							newValue.addAll(mappingS.get(classes.get(i)));
-    							mappingS.put(classes.get(j), newValue);
     						}
     					}
     }
