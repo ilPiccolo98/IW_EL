@@ -55,7 +55,7 @@ public class Application
         Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
         for(GCI gci: gcis)
         	System.out.println(gci.toString());
-        Normalizer normalizer = new Normalizer(ontology, gcis);
+        ElPlusPlusNormalizer normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
         Set<GCI> normalizedExpressions = normalizer.getNormalizedExpressions();
         Set<OWLIndividual> individuals = Utilities.getIndividualsFromCBox(gcis);

@@ -16,15 +16,21 @@ public class ELPlusPlusReasoner {
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
     private Set<OWLIndividual> individuals;
 
-    public ELPlusPlusReasoner(OWLOntology ontology, Set<GCI> normalizedGCIs, Set<GCI> cbox){
+    public ELPlusPlusReasoner(OWLOntology ontology, Normalizer normalizer){
         this.ontology = ontology;
-        this.normalizedGCIs = normalizedGCIs;
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
-        this.individuals = Utilities.getIndividualsFromCBox(cbox);
-
+        Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
+        this.individuals = Utilities.getIndividualsFromCBox(gcis);
+        normalizer.execute();
+        this.normalizedGCIs = normalizer.getNormalizedExpressions();
         initializeMappingS();
         initializeMappingR();
+    }
+    
+    public void execute()
+    {
+    	useCompletionRules();
     }
 
     private void useCompletionRules(){
