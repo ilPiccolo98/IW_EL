@@ -45,7 +45,7 @@ public class Application
 	{
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		//IRI pizzaontology = IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
-        File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\test.rdf");
+        File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\stress_test.rdf");
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
         OWLReasonerFactory rf = new ReasonerFactory();
         OWLReasoner reasoner = rf.createReasoner(ontology);
@@ -58,9 +58,12 @@ public class Application
         Normalizer normalizer = new Normalizer(ontology, gcis);
         normalizer.execute();
         Set<GCI> normalizedExpressions = normalizer.getNormalizedExpressions();
-        Set<OWLIndividual> individuals = Utilities.getIndividualFromNormalizedCbox(normalizedExpressions);
+        Set<OWLIndividual> individuals = Utilities.getIndividualFromNormalizedCbox(gcis);
         System.out.println("Normalized Expressions-----------------------------------");
         for(GCI gci: normalizedExpressions)
         	System.out.println(gci.toString());
+        System.out.println("Individuals-----------------------------------------------");
+        for(OWLIndividual individual : individuals)
+        	System.out.println(individual);
 	}
 }
