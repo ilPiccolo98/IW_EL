@@ -55,12 +55,12 @@ public class Application
         Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
         for(GCI gci: gcis)
         	System.out.println(gci.toString());
-        /*Normalizer normalizer = new Normalizer(ontology, gcis);
+        Normalizer normalizer = new Normalizer(ontology, gcis);
         normalizer.execute();
         Set<GCI> normalizedExpressions = normalizer.getNormalizedExpressions();
         Set<OWLIndividual> individuals = Utilities.getIndividualFromNormalizedCbox(normalizedExpressions);
         System.out.println("Normalized Expressions-----------------------------------");
         for(GCI gci: normalizedExpressions)
-        	System.out.println(gci.toString());*/
+        	System.out.println(gci.toString());
 	}
 }
