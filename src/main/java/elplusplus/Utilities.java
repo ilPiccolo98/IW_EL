@@ -131,10 +131,10 @@ public class Utilities
 		}
 	}
 	
-	static Set<OWLIndividual> getIndividualFromNormalizedCbox(Set<GCI> normalizedTBox)
+	static Set<OWLIndividual> getIndividualsFromCBox(Set<GCI> cbox)
 	{
 		Set<OWLIndividual> individuals = new HashSet<OWLIndividual>();
-		for(GCI gci : normalizedTBox)
+		for(GCI gci : cbox)
 		{
 			if(gci.getSubclassType().equals("individual"))
 			{
