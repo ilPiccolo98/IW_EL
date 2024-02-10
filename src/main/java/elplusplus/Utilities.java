@@ -1,22 +1,18 @@
 package elplusplus;
 
-import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
 import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLIndividualAxiom;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObject;
-import org.semanticweb.owlapi.model.OWLObjectIntersectionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.reasoner.InferenceDepth;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 
 public class Utilities 
@@ -26,6 +22,8 @@ public class Utilities
 		Set<GCI> classesGCIs = getClassesGCIs(ontology);
 		Set<GCI> individualsGCIs = getIndividualsGCIs(ontology, reasoner);
 		classesGCIs.addAll(individualsGCIs);
+		Set<List<OWLClassExpression>> equivalentClasses = getEquivalentClasses(ontology, reasoner);
+		replaceEquivalentClasses(classesGCIs, equivalentClasses);
 		return classesGCIs;
 	}
 	
@@ -56,6 +54,35 @@ public class Utilities
 			}
 		}
 		return gcis;
+	}
+	
+	static Set<List<OWLClassExpression>> getEquivalentClasses(OWLOntology ontology, OWLReasoner reasoner)
+	{
+		Set<List<OWLClassExpression>> equivalentClasses = new HashSet<List<OWLClassExpression>>();
+		for(OWLAxiom axiom : ontology.getAxioms())
+		{
+			if (axiom.isOfType(AxiomType.EQUIVALENT_CLASSES))
+			{
+				OWLEquivalentClassesAxiom assertion = (OWLEquivalentClassesAxiom)axiom;
+				equivalentClasses.add(assertion.getOperandsAsList());
+			}
+		}
+		return equivalentClasses;
+	}
+	
+	static Set<List<OWLClassExpression>> replaceEquivalentClasses(Set<GCI> gcis, Set<List<OWLClassExpression>> equivalentClasses)
+	{
+		for(GCI gci : gcis)
+		{
+			for(List<OWLClassExpression> equivalentClass : equivalentClasses)
+			{
+				if(equivalentClass.get(0).equals(gci.getSubClass()))
+					gci.setSubClass(equivalentClass.get(1));
+				if(equivalentClass.get(0).equals(gci.getSuperClass()))
+					gci.setSuperClass(equivalentClass.get(1));
+			}
+		}
+		return equivalentClasses;
 	}
 	
 	static boolean isInBC(OWLObject object)

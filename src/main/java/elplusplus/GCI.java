@@ -17,9 +17,19 @@ public class GCI
 		return subClass;
 	}
 	
+	public void setSubClass(OWLObject subClass)
+	{
+		this.subClass = subClass;
+	}
+	
 	public OWLClassExpression getSuperClass() 
 	{
 		return superClass;
+	}
+	
+	public void setSuperClass(OWLClassExpression superClass)
+	{
+		this.superClass = superClass;
 	}
 	
 	public String toString()
