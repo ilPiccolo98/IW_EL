@@ -16,4 +16,13 @@ public class Tuple<T1,T2> {
     public T2 getSecond() {
         return second;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Tuple){
+            return first.equals(((Tuple<?, ?>) obj).first) && second.equals(((Tuple<?, ?>) obj).second);
+        } else {
+            return false;
+        }
+    }
 }
