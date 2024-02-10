@@ -47,12 +47,9 @@ public class Application
 		//IRI pizzaontology = IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
         File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\stress_test.rdf");
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
-        OWLReasonerFactory rf = new ReasonerFactory();
-        OWLReasoner reasoner = rf.createReasoner(ontology);
-        OWLDataFactory dataFactory = manager.getOWLDataFactory();
-        Optional<IRI> ontologyIRI = ontology.getOntologyID().getOntologyIRI();
-        Set<OWLClass> classes = ontology.getClassesInSignature();
-        Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
+        ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
+        reasoner.execute();
+        /*Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
         for(GCI gci: gcis)
         	System.out.println(gci.toString());
         ElPlusPlusNormalizer normalizer = new ElPlusPlusNormalizer(ontology, gcis);
@@ -64,6 +61,6 @@ public class Application
         	System.out.println(gci.toString());
         System.out.println("Individuals-----------------------------------------------");
         for(OWLIndividual individual : individuals)
-        	System.out.println(individual);
+        	System.out.println(individual);*/
 	}
 }

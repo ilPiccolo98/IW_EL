@@ -137,10 +137,7 @@ public class Utilities
 		for(GCI gci : cbox)
 		{
 			if(gci.getSubclassType().equals("individual"))
-			{
-				System.out.println("INDIVIDUAL: " + gci);
 				individuals.add((OWLIndividual)gci.getSubClass());
-			}
 		}
 		return individuals;
 	}

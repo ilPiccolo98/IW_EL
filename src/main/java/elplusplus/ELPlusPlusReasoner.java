@@ -15,13 +15,15 @@ public class ELPlusPlusReasoner {
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
     private Set<OWLIndividual> individuals;
+    private Normalizer normalizer;
 
-    public ELPlusPlusReasoner(OWLOntology ontology, Normalizer normalizer){
+    public ELPlusPlusReasoner(OWLOntology ontology){
         this.ontology = ontology;
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
         Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
         this.individuals = Utilities.getIndividualsFromCBox(gcis);
+        normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
         this.normalizedGCIs = normalizer.getNormalizedExpressions();
         initializeMappingS();
@@ -49,6 +51,7 @@ public class ELPlusPlusReasoner {
                     change = false;
                 }
             }
+            System.out.println(change);
         } while (change);
         applyCR5();
         initGraph();
@@ -208,51 +211,47 @@ public class ELPlusPlusReasoner {
     }
 
     private void initializeMappingS() {
-        Set<GCI> GCIs = Utilities.getGCIs(ontology, reasoner);
         OWLDataFactory factory = ontology.getOWLOntologyManager().getOWLDataFactory();
         mappingS = new HashMap<>();
-        for(GCI gci: GCIs){
-            if (Utilities.isInBC(gci.getSubClass())){
-                Set<OWLObject> mapped = new HashSet<>();
-                mapped.add(gci.getSubClass()); // Adding C to the set
-                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                mappingS.put(gci.getSuperClass(), mapped);
-            }
-            if (Utilities.isInBC(gci.getSuperClass())){
-                Set<OWLObject> mapped = new HashSet<>();
-                mapped.add(gci.getSuperClass()); // Adding C to the set
-                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                mappingS.put(gci.getSuperClass(), mapped);
-            }
+        for(GCI gci: normalizedGCIs){
+        	System.out.println("Original gci: " + gci);
+        	Set<OWLClassExpression> nestedClassOfSubClass =  gci.getSubClass().getNestedClassExpressions();
+        	Set<OWLClassExpression> nestedClassOfSuperClass = gci.getSuperClass().getNestedClassExpressions();
+        	nestedClassOfSubClass.forEach(expression -> {
+        		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
+        		{
+        			System.out.println(expression);
+        			Set<OWLObject> mapped = new HashSet<>();
+        			mapped.add(expression); // Adding C to the set
+                    mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
+                    mappingS.put(expression, mapped);
+        		}
+        	});
+        	nestedClassOfSuperClass.forEach(expression -> {
+        		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
+        		{
+        			System.out.println(expression);
+        			Set<OWLObject> mapped = new HashSet<>();
+        			mapped.add(expression); // Adding C to the set
+                    mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
+                    mappingS.put(expression, mapped);
+        		}
+        	});
         }
     }
 
     private Set<OWLProperty> getProperties() {
         Set<OWLProperty> properties = new HashSet<>();
         // Get the TBox axioms
-        Set<OWLLogicalAxiom> tboxAxioms = ontology.getLogicalAxioms();
-        // Iterate over the TBox axioms
-        for (OWLLogicalAxiom axiom : tboxAxioms) {
-            // Check if the axiom is a subclass axiom
-            if (axiom instanceof OWLSubClassOfAxiom) {
-                OWLSubClassOfAxiom subClassAxiom = (OWLSubClassOfAxiom) axiom;
-                // Get the super class expression
-                OWLClassExpression superClass = subClassAxiom.getSuperClass();
-                // Check if the super class expression is an OWLObjectProperty or OWLDataProperty
-                if (superClass instanceof OWLObjectSomeValuesFrom) {
-                    OWLObjectSomeValuesFrom someValuesFrom = (OWLObjectSomeValuesFrom) superClass;
-                    OWLObjectPropertyExpression propertyExpression = someValuesFrom.getProperty();
-                    if (propertyExpression instanceof OWLObjectProperty) {
-                        properties.add((OWLObjectProperty) propertyExpression);
-                    }
-                } else if (superClass instanceof OWLDataSomeValuesFrom) {
-                    OWLDataSomeValuesFrom dataSomeValuesFrom = (OWLDataSomeValuesFrom) superClass;
-                    OWLDataPropertyExpression propertyExpression = dataSomeValuesFrom.getProperty();
-                    if (propertyExpression instanceof OWLDataProperty) {
-                        properties.add((OWLDataProperty) propertyExpression);
-                    }
-                }
-            }
+        Set<OWLObjectProperty> objectProperties = ontology.getObjectPropertiesInSignature();
+        for (OWLObjectProperty property : objectProperties) {
+        	if(!property.isOWLTopObjectProperty())
+        		properties.add(property);
+        }
+        Set<OWLDataProperty> dataProperties = ontology.getDataPropertiesInSignature();
+        for (OWLDataProperty property : dataProperties) {
+        	if(!property.isOWLTopDataProperty())
+        		properties.add(property);
         }
         return properties;
     }
