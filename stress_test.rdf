@@ -286,16 +286,7 @@
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A26andA27 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A26andA27">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A26"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A27"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A26andA27"/>
     
 
 
@@ -429,6 +420,21 @@
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#R5someA14andBottomAndr5someA15 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#R5someA14andBottomAndr5someA15">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#r5"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A14"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#r6"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#A15"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-35#R7someA20andA21andA22"/>
     </owl:Class>
     

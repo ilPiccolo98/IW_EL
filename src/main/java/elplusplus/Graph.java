@@ -2,11 +2,24 @@ package elplusplus;
 
 import java.util.*;
 
-public class Graph<T> {
-    private Map<T, List<T>> adjacencyList;
-    private Map<T, Set<T>> reachableNodes;
+import org.semanticweb.owlapi.model.OWLObject;
 
-    public boolean addVertex(T vertex) {
+public class Graph {
+    private Map<OWLObject, List<OWLObject>> adjacencyList;
+    private Map<OWLObject, Set<OWLObject>> reachableNodes;
+    
+    public Graph()
+    {
+    	adjacencyList = new HashMap<OWLObject, List<OWLObject>>();
+    	reachableNodes = new HashMap<OWLObject, Set<OWLObject>>();
+    }
+    
+    public Set<OWLObject> getVerteces()
+    {
+    	return adjacencyList.keySet();
+    }
+    
+    public boolean addVertex(OWLObject vertex) {
         if (!adjacencyList.containsKey(vertex)) {
             adjacencyList.put(vertex, new LinkedList<>());
             return true;
@@ -15,24 +28,24 @@ public class Graph<T> {
         }
     }
 
-    public void addEdge(T source, T destination) {
+    public void addEdge(OWLObject source, OWLObject destination) {
         if (!adjacencyList.containsKey(source)) {
             throw new RuntimeException("Source vertex does not exist");
         }
         if (!adjacencyList.containsKey(destination)) {
             throw new RuntimeException("Destination vertex does not exist");
         }
-        List<T> sourceNeighbours = adjacencyList.get(source);
+        List<OWLObject> sourceNeighbours = adjacencyList.get(source);
         if (!sourceNeighbours.contains(destination)) {
             sourceNeighbours.add(destination);
         }
     }
 
-    public boolean hasVertex(T vertex) {
+    public boolean hasVertex(OWLObject vertex) {
         return adjacencyList.containsKey(vertex);
     }
 
-    public boolean hasEdge(T source, T destination) {
+    public boolean hasEdge(OWLObject source, OWLObject destination) {
         if (adjacencyList.containsKey(source) && adjacencyList.containsKey(destination)) {
             return adjacencyList.get(source).contains(destination);
         } else {
@@ -46,31 +59,31 @@ public class Graph<T> {
 
     public int edgeNumber(){
         int count = 0;
-        for (T vertex : adjacencyList.keySet()) {
+        for (OWLObject vertex : adjacencyList.keySet()) {
             count += adjacencyList.get(vertex).size();
         }
         return count;
     }
 
-    public List<T> getAdjacentNodes(T vertex) {
+    public List<OWLObject> getAdjacentNodes(OWLObject vertex) {
         if (!adjacencyList.containsKey(vertex)) {
             throw new RuntimeException("Vertex does not exist");
         }
         return adjacencyList.get(vertex);
     }
 
-    public void removeVertex(T vertex) {
+    public void removeVertex(OWLObject vertex) {
         if (!adjacencyList.containsKey(vertex)) {
             throw new RuntimeException("Vertex does not exist");
         }
         adjacencyList.remove(vertex);
-        for (T v : adjacencyList.keySet()) {
+        for (OWLObject v : adjacencyList.keySet()) {
             adjacencyList.get(v).remove(vertex);
         }
         reachableNodes.clear();
     }
 
-    public void removeEdge(T source, T destination) {
+    public void removeEdge(OWLObject source, OWLObject destination) {
         if (!adjacencyList.containsKey(source)) {
             throw new RuntimeException("Source vertex does not exist");
         }
@@ -81,15 +94,15 @@ public class Graph<T> {
         reachableNodes.clear();
     }
 
-    private Set<T> BFS(T source)
+    private Set<OWLObject> BFS(OWLObject source)
     {
-    	Queue<T> queue = new LinkedList<T>();
-    	Set<T> reachedNodes = new HashSet<T>();
+    	Queue<OWLObject> queue = new LinkedList<OWLObject>();
+    	Set<OWLObject> reachedNodes = new HashSet<OWLObject>();
     	queue.add(source);
     	while(!queue.isEmpty())
     	{
-    		T current_node = queue.remove();
-    		for(T adjacent_node : adjacencyList.get(current_node))
+    		OWLObject current_node = queue.remove();
+    		for(OWLObject adjacent_node : adjacencyList.get(current_node))
     			if(!reachedNodes.contains(adjacent_node))
     			{
     				queue.add(adjacent_node);
@@ -99,12 +112,12 @@ public class Graph<T> {
     	return reachedNodes;
     }
     
-    public void initAdjacentNodes(T source)
+    public void initAdjacentNodes(OWLObject source)
     {
     	reachableNodes.put(source, BFS(source));
     }
 
-    public boolean hasPathBetween(T source, T destination)
+    public boolean hasPathBetween(OWLObject source, OWLObject destination)
     {
         return reachableNodes.get(source).contains(destination);
     }

@@ -6,12 +6,13 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ELPlusPlusReasoner {
     private final Set<GCI> normalizedGCIs;
     private final OWLOntology ontology;
     private final OWLReasoner reasoner;
-    private final Graph<OWLObject> arrowRelationGraph = new Graph<>();
+    private final Graph arrowRelationGraph;
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
     private Set<OWLIndividual> individuals;
@@ -26,6 +27,7 @@ public class ELPlusPlusReasoner {
         normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
         this.normalizedGCIs = normalizer.getNormalizedExpressions();
+        arrowRelationGraph = new Graph();
         initializeMappingS();
         initializeMappingR();
     }
@@ -38,6 +40,7 @@ public class ELPlusPlusReasoner {
     private void useCompletionRules(){
         boolean change = false;
         do {
+        	change = false;
             for (GCI gci: normalizedGCIs) {
                 if (isCR1Applied(gci)){
                     change = true;
@@ -47,8 +50,6 @@ public class ELPlusPlusReasoner {
                     change = true;
                 } else if (isCR4Applied(gci)){
                     change = true;
-                } else {
-                    change = false;
                 }
             }
             System.out.println(change);
@@ -60,6 +61,7 @@ public class ELPlusPlusReasoner {
     }
 
     private boolean isCR1Applied(GCI gci) {
+    	AtomicBoolean found = new AtomicBoolean(false);
         OWLObject lhs = gci.getSubClass(); // C'
         OWLObject rhs = gci.getSuperClass(); // D
         // checks if lhs and rhs are simple concepts
@@ -68,16 +70,16 @@ public class ELPlusPlusReasoner {
             mappingS.forEach((C, S_di_C) -> {
                 if (S_di_C.contains(lhs) && !S_di_C.contains(rhs)){
                     toBeAddedToMappingS.put(C, rhs);
+                    found.set(true);
                 }
             });
             toBeAddedToMappingS.forEach((C, D) -> mappingS.get(C).add(D));
-            return true;
-        } else {
-            return false;
         }
+        return found.get();
     }
 
     private boolean isCR2Applied(GCI gci) {
+    	AtomicBoolean found = new AtomicBoolean(false);
         OWLObject lhs = gci.getSubClass(); // C1 ∩ C2
         OWLObject rhs = gci.getSuperClass(); // D
         // checks if lhs is an intersection and rhs is a simple concept
@@ -90,16 +92,16 @@ public class ELPlusPlusReasoner {
             mappingS.forEach((C, S_di_C) -> {
                 if (S_di_C.contains(C1) && S_di_C.contains(C2) && !S_di_C.contains(rhs)){
                     toBeAddedToMappingS.put(C, rhs);
+                    found.set(true);
                 }
             });
             toBeAddedToMappingS.forEach((C, D) -> mappingS.get(C).add(D));
-            return true;
-        } else {
-            return false;
         }
+        return found.get();
     }
 
     private boolean isCR3Applied(GCI gci) {
+    	AtomicBoolean found = new AtomicBoolean(false);
         OWLObject lhs = gci.getSubClass(); // C1
         OWLObject rhs = gci.getSuperClass(); // ∃r.D
         // checks if lhs is a simple concept and rhs is an existential restriction
@@ -114,17 +116,17 @@ public class ELPlusPlusReasoner {
                     if (R_di_r == null){ // credo non possa succedere
                         R_di_r = new HashSet<>();
                         mappingR.put(r, R_di_r);
+                        found.set(true);
                     }
                     R_di_r.add(C_D);
                 }
             });
-            return true;
-        } else {
-            return false;
         }
+        return found.get();
     }
 
     private boolean isCR4Applied(GCI gci) {
+    	AtomicBoolean found = new AtomicBoolean(false);
         OWLObject lhs = gci.getSubClass(); // ∃r.D'
         OWLObject rhs = gci.getSuperClass(); // E
 
@@ -139,12 +141,11 @@ public class ELPlusPlusReasoner {
                 Set<OWLObject> S_di_C = mappingS.get(C);
                 if (S_di_D.contains(D_primo) && !S_di_C.contains(rhs)){
                     S_di_C.add(rhs);
+                    found.set(true);
                 }
             });
-            return true;
-        } else {
-            return false;
         }
+        return found.get();
     }
 
     private void applyCR5() {
@@ -198,7 +199,7 @@ public class ELPlusPlusReasoner {
     
     private void initReachabilityMatrix()
     {
-    	for(OWLObject source : mappingS.keySet())
+    	for(OWLObject source : arrowRelationGraph.getVerteces())
     		arrowRelationGraph.initAdjacentNodes(source);
     }
 
@@ -214,13 +215,11 @@ public class ELPlusPlusReasoner {
         OWLDataFactory factory = ontology.getOWLOntologyManager().getOWLDataFactory();
         mappingS = new HashMap<>();
         for(GCI gci: normalizedGCIs){
-        	System.out.println("Original gci: " + gci);
         	Set<OWLClassExpression> nestedClassOfSubClass =  gci.getSubClass().getNestedClassExpressions();
         	Set<OWLClassExpression> nestedClassOfSuperClass = gci.getSuperClass().getNestedClassExpressions();
         	nestedClassOfSubClass.forEach(expression -> {
         		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
         		{
-        			System.out.println(expression);
         			Set<OWLObject> mapped = new HashSet<>();
         			mapped.add(expression); // Adding C to the set
                     mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
@@ -230,7 +229,6 @@ public class ELPlusPlusReasoner {
         	nestedClassOfSuperClass.forEach(expression -> {
         		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
         		{
-        			System.out.println(expression);
         			Set<OWLObject> mapped = new HashSet<>();
         			mapped.add(expression); // Adding C to the set
                     mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
