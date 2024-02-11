@@ -141,7 +141,8 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // C1
         OWLObject rhs = gci.getSuperClass(); // ∃r.D
         // checks if lhs is a simple concept and rhs is an existential restriction
-        if (lhs instanceof OWLClass && rhs instanceof OWLObjectSomeValuesFrom) {
+        if ((lhs instanceof OWLClass || lhs instanceof OWLIndividual) && 
+        		rhs instanceof OWLObjectSomeValuesFrom) {
             // checks if the tuple (C,D) is not in mappingR for the property r
             OWLObject D = ((OWLObjectSomeValuesFrom) rhs).getFiller();
             OWLProperty r = ((OWLObjectProperty) ((OWLObjectSomeValuesFrom) rhs).getProperty());
@@ -166,7 +167,8 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // ∃r.D'
         OWLObject rhs = gci.getSuperClass(); // E
 
-        if (lhs instanceof OWLObjectSomeValuesFrom && rhs instanceof OWLClass) {
+        if (lhs instanceof OWLObjectSomeValuesFrom && 
+        		(rhs instanceof OWLClass || rhs instanceof OWLIndividual)) {
             OWLObject D_primo = ((OWLObjectSomeValuesFrom) lhs).getFiller();
             OWLProperty r = ((OWLObjectProperty) ((OWLObjectSomeValuesFrom) lhs).getProperty());
             Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
@@ -266,7 +268,6 @@ public class ELPlusPlusReasoner {
                 mappingS.put(individual, mapped);
         	});
         	nestedClassOfSubClass.forEach(expression -> {
-        		System.out.println(expression);
         		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
         		{
         			Set<OWLObject> mapped = new HashSet<>();

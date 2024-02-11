@@ -22,11 +22,12 @@ public class Application
         System.out.println("Algorithm finished");
         IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
         System.out.println(ontologyIRI);
-        IRI conceptA = IRI.create(ontologyIRI.toString() + "#C");
+        IRI conceptA = IRI.create(ontologyIRI.toString() + "#G");
         IRI conceptB = IRI.create(ontologyIRI.toString() + "#A");
         // Ottenere la classe specifica dall'ontologia
         OWLClass owlConceptA = manager.getOWLDataFactory().getOWLClass(conceptA);
         OWLClass owlConceptB = manager.getOWLDataFactory().getOWLClass(conceptB);
+        System.out.println("Printing mapping s");
         reasoner.printMappingS();
         // Verifica se la classe esiste nell'ontologia
         if (ontology.containsClassInSignature(conceptA) && ontology.containsClassInSignature(conceptB)) {
