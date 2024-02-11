@@ -36,7 +36,34 @@ public class ELPlusPlusReasoner {
     {
     	useCompletionRules();
     }
+    
+    public boolean subsumption(OWLObject subclass, OWLObject superclass)
+    {
+    	if(checkFirstConditionOfSubsumption(subclass, superclass) && checkSecondConditionOfSubsumption())
+    		return true;
+    	return false;
+    }
+    
+    private boolean checkFirstConditionOfSubsumption(OWLObject subclass, OWLObject superclass)
+    {
+    	OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
+    	System.out.println(bottom);
+    	if(!mappingS.get(subclass).contains(superclass) && !mappingS.get(subclass).contains(bottom))
+    		return true;
+    	return false;
+    }
 
+    private boolean checkSecondConditionOfSubsumption()
+    {
+    	AtomicBoolean found = new AtomicBoolean(false);
+    	OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
+    	individuals.forEach(individual -> {
+    		if(mappingS.get(individual) != null && mappingS.get(individual).contains(bottom))
+    			found.set(true);
+    	});
+    	return found.get();
+    }
+    
     private void useCompletionRules(){
         boolean change = false;
         do {
@@ -52,7 +79,6 @@ public class ELPlusPlusReasoner {
                     change = true;
                 }
             }
-            System.out.println(change);
         } while (change);
         applyCR5();
         initGraph();
