@@ -15,18 +15,19 @@ public class Application
 	{
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		//IRI pizzaontology = IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
-        File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\stress_test.rdf");
+        File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\test.rdf");
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
         ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
         reasoner.execute();
         System.out.println("Algorithm finished");
         IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
-        IRI conceptA = IRI.create(ontologyIRI.toString() + "#A16");
-        IRI conceptB = IRI.create(ontologyIRI.toString() + "#A26");
+        System.out.println(ontologyIRI);
+        IRI conceptA = IRI.create(ontologyIRI.toString() + "#C");
+        IRI conceptB = IRI.create(ontologyIRI.toString() + "#A");
         // Ottenere la classe specifica dall'ontologia
         OWLClass owlConceptA = manager.getOWLDataFactory().getOWLClass(conceptA);
         OWLClass owlConceptB = manager.getOWLDataFactory().getOWLClass(conceptB);
-
+        reasoner.printMappingS();
         // Verifica se la classe esiste nell'ontologia
         if (ontology.containsClassInSignature(conceptA) && ontology.containsClassInSignature(conceptB)) {
         	System.out.println("They exist");

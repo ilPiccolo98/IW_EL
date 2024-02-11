@@ -39,16 +39,25 @@ public class ELPlusPlusReasoner {
     
     public boolean subsumption(OWLObject subclass, OWLObject superclass)
     {
-    	if(checkFirstConditionOfSubsumption(subclass, superclass) && checkSecondConditionOfSubsumption())
+    	if(checkFirstConditionOfSubsumption(subclass, superclass) || checkSecondConditionOfSubsumption())
     		return true;
     	return false;
+    }
+    
+    public void printMappingS()
+    {
+    	for(OWLObject key : mappingS.keySet())
+    	{
+    		System.out.println("S(" + key + ")----------------");
+    		for(OWLObject value : mappingS.get(key))
+    			System.out.println(value);
+    	}
     }
     
     private boolean checkFirstConditionOfSubsumption(OWLObject subclass, OWLObject superclass)
     {
     	OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
-    	System.out.println(bottom);
-    	if(!mappingS.get(subclass).contains(superclass) && !mappingS.get(subclass).contains(bottom))
+    	if(mappingS.get(subclass).contains(superclass) || mappingS.get(subclass).contains(bottom))
     		return true;
     	return false;
     }
@@ -91,7 +100,8 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // C'
         OWLObject rhs = gci.getSuperClass(); // D
         // checks if lhs and rhs are simple concepts
-        if (lhs instanceof OWLClass && rhs instanceof OWLClass){
+        if ((lhs instanceof OWLClass || lhs instanceof OWLIndividual) && 
+        		(rhs instanceof OWLClass || rhs instanceof OWLIndividual)){
             Map<OWLObject, OWLObject> toBeAddedToMappingS = new HashMap<>();
             mappingS.forEach((C, S_di_C) -> {
                 if (S_di_C.contains(lhs) && !S_di_C.contains(rhs)){
@@ -243,7 +253,20 @@ public class ELPlusPlusReasoner {
         for(GCI gci: normalizedGCIs){
         	Set<OWLClassExpression> nestedClassOfSubClass =  gci.getSubClass().getNestedClassExpressions();
         	Set<OWLClassExpression> nestedClassOfSuperClass = gci.getSuperClass().getNestedClassExpressions();
+        	gci.getSubClass().individualsInSignature().forEach(individual -> {
+        		Set<OWLObject> mapped = new HashSet<>();
+    			mapped.add(individual); // Adding C to the set
+                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
+                mappingS.put(individual, mapped);
+        	});
+        	gci.getSuperClass().individualsInSignature().forEach(individual -> {
+        		Set<OWLObject> mapped = new HashSet<>();
+    			mapped.add(individual); // Adding C to the set
+                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
+                mappingS.put(individual, mapped);
+        	});
         	nestedClassOfSubClass.forEach(expression -> {
+        		System.out.println(expression);
         		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
         		{
         			Set<OWLObject> mapped = new HashSet<>();
