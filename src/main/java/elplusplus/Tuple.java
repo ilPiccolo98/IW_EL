@@ -16,6 +16,11 @@ public class Tuple<T1,T2> {
     public T2 getSecond() {
         return second;
     }
+    
+    
+    public int hashCode() {
+        return first.toString().hashCode() ^ second.toString().hashCode();
+    }
 
     @Override
     public boolean equals(Object obj) {

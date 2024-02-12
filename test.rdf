@@ -13,6 +13,25 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -23,79 +42,49 @@
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeB"/>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeA -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#EandD -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#EandD">
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeA">
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E"/>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
+            </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#F -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeB -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#F"/>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#FandG -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#FandG">
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeB">
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#F"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#G"/>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
+            </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#G -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#G"/>
     
 
 
@@ -112,62 +101,31 @@
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e1">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#EandD"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e1"/>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e2 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e2">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#FandG"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e2"/>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e3 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e3">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e3"/>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e4 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e4">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e4"/>
     
 
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e5 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e5">
-        <rdf:type rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E"/>
-        </owl:members>
-    </rdf:Description>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#e5"/>
 </rdf:RDF>
 
 
