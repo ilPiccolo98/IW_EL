@@ -139,6 +139,8 @@ public class Utilities
 			return "⊤";
 		else if (object.isBottomEntity())
 			return "⊥";
+		else if (object.isIndividual())
+			return ((OWLNamedIndividual) object).getIRI().getShortForm();
 		else {
 			try {
 				OWLClassExpression expression = (OWLClassExpression) object;
