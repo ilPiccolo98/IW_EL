@@ -29,6 +29,7 @@ public class Application
         OWLClass owlConceptB = manager.getOWLDataFactory().getOWLClass(conceptB);
         System.out.println("Printing mapping s");
         reasoner.printMappingS();
+        reasoner.printMappingR();
         // Verifica se la classe esiste nell'ontologia
         if (ontology.containsClassInSignature(conceptA) && ontology.containsClassInSignature(conceptB)) {
         	System.out.println("They exist");

@@ -54,6 +54,16 @@ public class ELPlusPlusReasoner {
     	}
     }
     
+    public void printMappingR()
+    {
+    	for(OWLProperty key : mappingR.keySet())
+    	{
+    		System.out.println("R(" + key + ")----------------");
+    		for(Tuple<OWLObject, OWLObject> value : mappingR.get(key))
+    			System.out.println("(" + value.getFirst().toString() + ", " + value.getSecond() + ")");
+    	}
+    }
+    
     private boolean checkFirstConditionOfSubsumption(OWLObject subclass, OWLObject superclass)
     {
     	OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
