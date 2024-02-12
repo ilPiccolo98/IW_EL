@@ -138,7 +138,7 @@ public class ELPlusPlusReasoner {
 
     private boolean isCR3Applied(GCI gci) {
     	AtomicBoolean found = new AtomicBoolean(false);
-        OWLObject lhs = gci.getSubClass(); // C1
+        OWLObject lhs = gci.getSubClass(); // C'
         OWLObject rhs = gci.getSuperClass(); // ∃r.D
         // checks if lhs is a simple concept and rhs is an existential restriction
         if ((lhs instanceof OWLClass || lhs instanceof OWLIndividual) && 
@@ -149,12 +149,10 @@ public class ELPlusPlusReasoner {
             mappingS.forEach((C, S_di_C) -> {
                 Tuple<OWLObject, OWLObject> C_D = new Tuple<>(C, D);
                 Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
-                if (S_di_C.contains(lhs) && (R_di_r == null || !R_di_r.contains(C_D))){
-                    if (R_di_r == null){ // credo non possa succedere
-                        R_di_r = new HashSet<>();
-                        mappingR.put(r, R_di_r);
-                        found.set(true);
-                    }
+                if (R_di_r == null)
+                    throw new RuntimeException("Property " + r + " has not been initialized in mappingR");
+                if (S_di_C.contains(lhs) && !R_di_r.contains(C_D)){
+                    found.set(true);
                     R_di_r.add(C_D);
                 }
             });
