@@ -17,7 +17,7 @@ public class Tuple<T1,T2> {
         return second;
     }
     
-    
+    @Override
     public int hashCode() {
         return first.toString().hashCode() ^ second.toString().hashCode();
     }
