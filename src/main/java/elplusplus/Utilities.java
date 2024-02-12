@@ -148,6 +148,11 @@ public class Utilities
 				switch (expression.getClassExpressionType()) {
 					case OWL_CLASS:
 						return expression.asOWLClass().getIRI().getShortForm();
+					case OBJECT_ONE_OF:
+						return "{"
+								+ ((OWLObjectOneOf) expression).individuals().map(individual -> individual.asOWLNamedIndividual().getIRI().getShortForm())
+										.reduce((s1, s2) -> s1 + ", " + s2).orElse("")
+								+ "}";
 					case OBJECT_INTERSECTION_OF:
 						return "⊓";
 					case OBJECT_SOME_VALUES_FROM:
