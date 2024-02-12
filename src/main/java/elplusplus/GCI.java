@@ -29,10 +29,12 @@ public class GCI
 	{
 		this.superClass = superClass;
 	}
-	
+
+	@Override
 	public String toString()
 	{
-		return "Subclass: " + subClass.toString() + "; Superclass: " + superClass.toString();
+//		return "Subclass: " + subClass.toString() + "; Superclass: " + superClass.toString();
+		return Utilities.prettyPrint(subClass) + " ⊑ " + Utilities.prettyPrint(superClass);
 	}
 	
 	
