@@ -46,22 +46,26 @@ public class ELPlusPlusReasoner {
     
     public void printMappingS()
     {
+        System.out.println("Mapping S-----------------------------------------");
     	for(OWLObject key : mappingS.keySet())
     	{
-    		System.out.println("S(" + key + ")----------------");
+    		System.out.print("\nS(" + Utilities.prettyPrint(key) + "): ");
     		for(OWLObject value : mappingS.get(key))
-    			System.out.println(value);
+    			System.out.print(Utilities.prettyPrint(value) + ", ");
     	}
+        System.out.println("\n");
     }
     
     public void printMappingR()
     {
+        System.out.println("Mapping R-----------------------------------------");
     	for(OWLProperty key : mappingR.keySet())
     	{
-    		System.out.println("R(" + key + ")----------------");
+    		System.out.print("\nR(" + Utilities.prettyPrint(key) + "): ");
     		for(Tuple<OWLObject, OWLObject> value : mappingR.get(key))
-    			System.out.println("(" + value.getFirst().toString() + ", " + value.getSecond() + ")");
+    			System.out.print("(" + Utilities.prettyPrint(value.getFirst()) + ", " + Utilities.prettyPrint(value.getSecond()) + "), ");
     	}
+        System.out.println("\n");
     }
     
     private boolean checkFirstConditionOfSubsumption(OWLObject subclass, OWLObject superclass)
