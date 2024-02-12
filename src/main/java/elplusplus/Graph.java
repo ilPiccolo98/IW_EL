@@ -119,6 +119,6 @@ public class Graph {
 
     public boolean hasPathBetween(OWLObject source, OWLObject destination)
     {
-        return reachableNodes.get(source).contains(destination);
+        return reachableNodes.get(source) != null && reachableNodes.get(source).contains(destination);
     }
 }

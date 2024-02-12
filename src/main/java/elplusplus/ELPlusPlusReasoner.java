@@ -92,7 +92,6 @@ public class ELPlusPlusReasoner {
         do {
         	change = false;
             for (GCI gci: normalizedGCIs) {
-            	System.out.println("Current gci: " + gci);
                 if (isCR1Applied(gci)){
                     change = true;
                 } else if (isCR2Applied(gci)){
@@ -238,6 +237,7 @@ public class ELPlusPlusReasoner {
     }
 
     private void initGraph(){
+    	System.out.println("Init graph");
         for (OWLProperty r : mappingR.keySet()){
             Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
             R_di_r.forEach(C_D -> {
