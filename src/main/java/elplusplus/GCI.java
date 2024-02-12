@@ -1,23 +1,21 @@
 package elplusplus;
 
 import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLObject;
 
 public class GCI 
 {
-	public GCI(OWLObject subClass, OWLClassExpression superClass, String subclassType)
+	public GCI(OWLClassExpression subClass, OWLClassExpression superClass)
 	{
 		this.subClass = subClass;
 		this.superClass = superClass;
-		this.subclassType = subclassType;
 	}
 	
-	public OWLObject getSubClass() 
+	public OWLClassExpression getSubClass() 
 	{
 		return subClass;
 	}
 	
-	public void setSubClass(OWLObject subClass)
+	public void setSubClass(OWLClassExpression subClass)
 	{
 		this.subClass = subClass;
 	}
@@ -37,12 +35,7 @@ public class GCI
 		return "Subclass: " + subClass.toString() + "; Superclass: " + superClass.toString();
 	}
 	
-	public String getSubclassType()
-	{
-		return subclassType;
-	}
 	
-	private OWLObject subClass;
+	private OWLClassExpression subClass;
 	private OWLClassExpression superClass;
-	private String subclassType;
 }

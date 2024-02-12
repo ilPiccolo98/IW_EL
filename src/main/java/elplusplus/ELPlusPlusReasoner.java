@@ -15,7 +15,7 @@ public class ELPlusPlusReasoner {
     private final Graph arrowRelationGraph;
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
-    private Set<OWLIndividual> individuals;
+    private Set<OWLObjectOneOf> oneOfObjects;
     private Normalizer normalizer;
 
     public ELPlusPlusReasoner(OWLOntology ontology){
@@ -23,7 +23,7 @@ public class ELPlusPlusReasoner {
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
         Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
-        this.individuals = Utilities.getIndividualsFromCBox(gcis);
+        this.oneOfObjects = Utilities.getNominalsFromCBox(gcis);
         normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
         this.normalizedGCIs = normalizer.getNormalizedExpressions();
@@ -76,8 +76,8 @@ public class ELPlusPlusReasoner {
     {
     	AtomicBoolean found = new AtomicBoolean(false);
     	OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
-    	individuals.forEach(individual -> {
-    		if(mappingS.get(individual) != null && mappingS.get(individual).contains(bottom))
+    	oneOfObjects.forEach(oneOfObject -> {
+    		if(mappingS.get(oneOfObject) != null && mappingS.get(oneOfObject).contains(bottom))
     			found.set(true);
     	});
     	return found.get();
@@ -88,6 +88,7 @@ public class ELPlusPlusReasoner {
         do {
         	change = false;
             for (GCI gci: normalizedGCIs) {
+            	System.out.println("Current gci: " + gci);
                 if (isCR1Applied(gci)){
                     change = true;
                 } else if (isCR2Applied(gci)){
@@ -110,12 +111,13 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // C'
         OWLObject rhs = gci.getSuperClass(); // D
         // checks if lhs and rhs are simple concepts
-        if ((lhs instanceof OWLClass || lhs instanceof OWLIndividual) && 
-        		(rhs instanceof OWLClass || rhs instanceof OWLIndividual)){
+        if ((lhs instanceof OWLClass || lhs instanceof OWLObjectOneOf) && 
+        		(rhs instanceof OWLClass || rhs instanceof OWLObjectOneOf))
+        {	
             Map<OWLObject, OWLObject> toBeAddedToMappingS = new HashMap<>();
             mappingS.forEach((C, S_di_C) -> {
                 if (S_di_C.contains(lhs) && !S_di_C.contains(rhs)){
-                    toBeAddedToMappingS.put(C, rhs);
+                	toBeAddedToMappingS.put(C, rhs);
                     found.set(true);
                 }
             });
@@ -129,7 +131,8 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // C1 ∩ C2
         OWLObject rhs = gci.getSuperClass(); // D
         // checks if lhs is an intersection and rhs is a simple concept
-        if (lhs instanceof OWLObjectIntersectionOf && rhs instanceof OWLClass) {
+        if (lhs instanceof OWLObjectIntersectionOf && 
+        		(rhs instanceof OWLClass || rhs instanceof OWLObjectOneOf)) {
             // checks if all the elements of the intersection are in S(C)
             List<OWLClassExpression> operands = ((OWLObjectIntersectionOf) lhs).getOperandsAsList();
             OWLObject C1 = operands.get(0);
@@ -211,11 +214,11 @@ public class ELPlusPlusReasoner {
 
     private void applyCR6() {
     	ArrayList<OWLObject> classes = new ArrayList<OWLObject>(mappingS.keySet());
-    	for(OWLIndividual individual : individuals)
+    	for(OWLObjectOneOf oneOfObject : oneOfObjects)
     		for(int i = 0; i != classes.size(); ++i)
-    			if(mappingS.get(classes.get(i)).contains(individual))
+    			if(mappingS.get(classes.get(i)).contains(oneOfObject))
     				for(int j = i + 1; j != classes.size(); ++j)
-    					if(mappingS.get(classes.get(j)).contains(individual))
+    					if(mappingS.get(classes.get(j)).contains(oneOfObject))
     					{
     						if(arrowRelationGraph.hasPathBetween(classes.get(i), classes.get(j)))
     						{
@@ -263,20 +266,9 @@ public class ELPlusPlusReasoner {
         for(GCI gci: normalizedGCIs){
         	Set<OWLClassExpression> nestedClassOfSubClass =  gci.getSubClass().getNestedClassExpressions();
         	Set<OWLClassExpression> nestedClassOfSuperClass = gci.getSuperClass().getNestedClassExpressions();
-        	gci.getSubClass().individualsInSignature().forEach(individual -> {
-        		Set<OWLObject> mapped = new HashSet<>();
-    			mapped.add(individual); // Adding C to the set
-                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                mappingS.put(individual, mapped);
-        	});
-        	gci.getSuperClass().individualsInSignature().forEach(individual -> {
-        		Set<OWLObject> mapped = new HashSet<>();
-    			mapped.add(individual); // Adding C to the set
-                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                mappingS.put(individual, mapped);
-        	});
         	nestedClassOfSubClass.forEach(expression -> {
-        		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
+        		if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF || 
+        				(expression.isOWLClass() && !expression.isBottomEntity()))
         		{
         			Set<OWLObject> mapped = new HashSet<>();
         			mapped.add(expression); // Adding C to the set
@@ -285,7 +277,8 @@ public class ELPlusPlusReasoner {
         		}
         	});
         	nestedClassOfSuperClass.forEach(expression -> {
-        		if(expression.isIndividual() || (expression.isOWLClass() && !expression.isBottomEntity()))
+        		if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF || 
+        				(expression.isOWLClass() && !expression.isBottomEntity()))
         		{
         			Set<OWLObject> mapped = new HashSet<>();
         			mapped.add(expression); // Adding C to the set

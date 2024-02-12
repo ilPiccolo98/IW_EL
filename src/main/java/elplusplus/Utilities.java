@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLObject;
+import org.semanticweb.owlapi.model.OWLObjectOneOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
@@ -20,8 +20,6 @@ public class Utilities
 	static Set<GCI> getGCIs(OWLOntology ontology, OWLReasoner reasoner)
 	{
 		Set<GCI> classesGCIs = getClassesGCIs(ontology);
-		Set<GCI> individualsGCIs = getIndividualsGCIs(ontology, reasoner);
-		classesGCIs.addAll(individualsGCIs);
 		Set<List<OWLClassExpression>> equivalentClasses = getEquivalentClasses(ontology, reasoner);
 		replaceEquivalentClasses(classesGCIs, equivalentClasses);
 		return classesGCIs;
@@ -35,24 +33,8 @@ public class Utilities
 		{
             OWLClassExpression subClass = axiom.getSubClass();
             OWLClassExpression superClass = axiom.getSuperClass();
-            gcis.add(new GCI(subClass, superClass, "expression"));
+            gcis.add(new GCI(subClass, superClass));
         }
-		return gcis;
-	}
-	
-	static Set<GCI> getIndividualsGCIs(OWLOntology ontology, OWLReasoner reasoner)
-	{
-		Set<GCI> gcis = new HashSet<GCI>();
-		for(OWLAxiom axiom : ontology.getAxioms())
-		{
-			if (axiom.isOfType(AxiomType.CLASS_ASSERTION))
-			{
-				OWLClassAssertionAxiom assertion = (OWLClassAssertionAxiom)axiom;
-				OWLIndividual individual = assertion.getIndividual();
-				OWLClassExpression expression = assertion.getClassExpression();
-				gcis.add(new GCI(individual, expression, "individual"));
-			}
-		}
 		return gcis;
 	}
 	
@@ -104,6 +86,8 @@ public class Utilities
 					return false;
 				case OBJECT_SOME_VALUES_FROM:
 					return false;
+				case OBJECT_ONE_OF:
+					return true;
 				default:
 					return false;
 			}
@@ -126,19 +110,27 @@ public class Utilities
 				return false;
 			case OBJECT_SOME_VALUES_FROM:
 				return false;
+			case OBJECT_ONE_OF:
+				return true;
 			default:
 				return false;
 		}
 	}
 	
-	static Set<OWLIndividual> getIndividualsFromCBox(Set<GCI> cbox)
+	static Set<OWLObjectOneOf> getNominalsFromCBox(Set<GCI> cbox)
 	{
-		Set<OWLIndividual> individuals = new HashSet<OWLIndividual>();
+		Set<OWLObjectOneOf> oneOfObjects = new HashSet<OWLObjectOneOf>();
 		for(GCI gci : cbox)
 		{
-			if(gci.getSubclassType().equals("individual"))
-				individuals.add((OWLIndividual)gci.getSubClass());
+			gci.getSubClass().getNestedClassExpressions().forEach(expression -> {
+				if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF)
+					oneOfObjects.add((OWLObjectOneOf)expression);
+			});
+			gci.getSuperClass().getNestedClassExpressions().forEach(expression -> {
+				if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF)
+					oneOfObjects.add((OWLObjectOneOf)expression);
+			});
 		}
-		return individuals;
+		return oneOfObjects;
 	}
 }
