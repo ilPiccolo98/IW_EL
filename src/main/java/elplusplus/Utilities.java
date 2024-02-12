@@ -4,15 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLEquivalentClassesAxiom;
-import org.semanticweb.owlapi.model.OWLIndividual;
-import org.semanticweb.owlapi.model.OWLObject;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 
 public class Utilities 
@@ -140,5 +132,32 @@ public class Utilities
 				individuals.add((OWLIndividual)gci.getSubClass());
 		}
 		return individuals;
+	}
+
+	static String prettyPrint(OWLObject object) {
+		if (object.isTopEntity())
+			return "⊤";
+		else if (object.isBottomEntity())
+			return "⊥";
+		else {
+			try {
+				OWLClassExpression expression = (OWLClassExpression) object;
+				switch (expression.getClassExpressionType()) {
+					case OWL_CLASS:
+						return expression.asOWLClass().getIRI().getShortForm();
+					case OBJECT_INTERSECTION_OF:
+						return "⊓";
+					case OBJECT_SOME_VALUES_FROM:
+						return "∃" + ((OWLObjectSomeValuesFrom) expression).getProperty().asOWLObjectProperty().getIRI().getShortForm() + "."
+								+ prettyPrint(((OWLObjectSomeValuesFrom) expression).getFiller());
+					default:
+						return "Unknown";
+				}
+			}catch(ClassCastException exception) {
+				// it's a role
+				OWLObjectPropertyExpression expression = (OWLObjectPropertyExpression) object;
+				return expression.getNamedProperty().getIRI().getShortForm();
+			}
+		}
 	}
 }
