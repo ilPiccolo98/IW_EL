@@ -39,9 +39,40 @@ public class ELPlusPlusReasoner {
     
     public boolean subsumption(OWLObject subclass, OWLObject superclass)
     {
-    	if(checkFirstConditionOfSubsumption(subclass, superclass) || checkSecondConditionOfSubsumption())
-    		return true;
-    	return false;
+        if (subclass instanceof OWLClass && superclass instanceof OWLClass){
+            if(checkFirstConditionOfSubsumption(subclass, superclass) || checkSecondConditionOfSubsumption())
+                return true;
+            return false;
+        } else {
+            Set<GCI> newGCIs = new HashSet<>();
+            Tuple<OWLClass, OWLClass> newClasses = createQueryClasses(newGCIs, ((OWLClassExpression) subclass), ((OWLClassExpression) superclass));
+            Set<GCI> normalizedNewGCI = normalizeQueryGCI(newGCIs);
+            normalizedGCIs.addAll(normalizedNewGCI);
+            reInitializeMappings();
+
+            // C ⊑ D iff A ⊑ B
+            return checkFirstConditionOfSubsumption(newClasses.getFirst(), newClasses.getSecond()) || checkSecondConditionOfSubsumption();
+        }
+    }
+
+    private void reInitializeMappings(){
+        initializeMappingS();
+        initializeMappingR();
+        useCompletionRules();
+    }
+
+    private Tuple<OWLClass, OWLClass> createQueryClasses(Set<GCI> gcis, OWLClassExpression subclass, OWLClassExpression superclass){
+        OWLClass A = createNewClass(null);
+        OWLClass B = createNewClass(null);
+        gcis.add(new GCI(A, subclass)); // A ⊑ C
+        gcis.add(new GCI(superclass, B)); // D ⊑ B
+        return new Tuple<>(A, B);
+    }
+
+    private Set<GCI> normalizeQueryGCI(Set<GCI> newGCIs){
+        Normalizer normalizer = new ElPlusPlusNormalizer(ontology, newGCIs);
+        normalizer.execute();
+        return normalizer.getNormalizedExpressions();
     }
     
     public void printMappingS()
@@ -306,6 +337,11 @@ public class ELPlusPlusReasoner {
         		}
         	});
         }
+    }
+
+    private OWLClass createNewClass(@Nullable String id) {
+        //todo: create a new class
+        return null;
     }
 
     private Set<OWLProperty> getProperties() {
