@@ -102,11 +102,15 @@ public class ELPlusPlusReasoner {
                     change = true;
                 }
             }
+            if(isCR5Applied()) {
+            	change = true;
+            }
+            initGraph();
+            initReachabilityMatrix();
+            if(isCR6Applied()) {
+            	change = true;
+            }
         } while (change);
-        applyCR5();
-        initGraph();
-        initReachabilityMatrix();
-        applyCR6();
     }
 
     private boolean isCR1Applied(GCI gci) {
@@ -200,7 +204,8 @@ public class ELPlusPlusReasoner {
         return found.get();
     }
 
-    private void applyCR5() {
+    private boolean isCR5Applied() {
+    	AtomicBoolean found = new AtomicBoolean(false);
         mappingR.forEach((r, R_di_r) -> {
             R_di_r.forEach(C_D -> {
                 OWLObject C = C_D.getFirst();
@@ -210,30 +215,41 @@ public class ELPlusPlusReasoner {
                 OWLClass bottom = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLNothing();
                 if (S_di_D.contains(bottom) && !S_di_C.contains(bottom)) {
                     S_di_C.add(bottom);
+                    found.set(true);
                 }
             });
         });
+        return found.get();
     }
 
-    private void applyCR6() {
-    	ArrayList<OWLObject> classes = new ArrayList<OWLObject>(mappingS.keySet());
-    	for(OWLObjectOneOf oneOfObject : oneOfObjects)
-    		for(int i = 0; i != classes.size(); ++i)
-    			if(mappingS.get(classes.get(i)).contains(oneOfObject))
-    				for(int j = i + 1; j != classes.size(); ++j)
-    					if(mappingS.get(classes.get(j)).contains(oneOfObject))
+    private boolean isCR6Applied() {
+    	AtomicBoolean found = new AtomicBoolean(false);
+    	oneOfObjects.forEach(nominal -> {
+    		mappingS.keySet().forEach(C -> {
+    			if(mappingS.get(C).contains(nominal)) {
+    				mappingS.keySet().forEach(D -> {
+    					if(mappingS.get(D).contains(nominal))
     					{
-    						if(arrowRelationGraph.hasPathBetween(classes.get(i), classes.get(j)))
+    						if(arrowRelationGraph.hasPathBetween(C, D) && 
+    								!mappingS.get(C).containsAll(mappingS.get(D)))
     						{
-    							Set<OWLObject> newValue = mappingS.get(classes.get(i));
-    							newValue.addAll(mappingS.get(classes.get(j)));
+    							found.set(true);
+    							Set<OWLObject> newValue = mappingS.get(C);
+    							newValue.addAll(mappingS.get(D));
     						}
-    						if(arrowRelationGraph.hasPathBetween(classes.get(j), classes.get(i)))
+      						if(arrowRelationGraph.hasPathBetween(D, C) && 
+    								!mappingS.get(D).containsAll(mappingS.get(C)))
     						{
-    							Set<OWLObject> newValue = mappingS.get(classes.get(j));
-    							newValue.addAll(mappingS.get(classes.get(i)));
+    							found.set(true);
+    							Set<OWLObject> newValue = mappingS.get(D);
+    							newValue.addAll(mappingS.get(C));
     						}
     					}
+    				});
+    			}
+    		});
+    	});
+    	return found.get();
     }
 
     private void initGraph(){

@@ -22,8 +22,8 @@ public class Application
         System.out.println("Algorithm finished");
         IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
         System.out.println(ontologyIRI);
-        IRI conceptA = IRI.create(ontologyIRI.toString() + "#C");
-        IRI conceptB = IRI.create(ontologyIRI.toString() + "#A");
+        IRI conceptA = IRI.create(ontologyIRI.toString() + "#A");
+        IRI conceptB = IRI.create(ontologyIRI.toString() + "#E");
         // Ottenere la classe specifica dall'ontologia
         OWLClass owlConceptA = manager.getOWLDataFactory().getOWLClass(conceptA);
         OWLClass owlConceptB = manager.getOWLDataFactory().getOWLClass(conceptB);
