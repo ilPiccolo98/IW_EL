@@ -23,7 +23,7 @@ public class Application
         IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
         System.out.println(ontologyIRI);
         IRI conceptA = IRI.create(ontologyIRI.toString() + "#A");
-        IRI conceptB = IRI.create(ontologyIRI.toString() + "#B");
+        IRI conceptB = IRI.create(ontologyIRI.toString() + "#C");
         IRI conceptC = IRI.create(ontologyIRI.toString() + "#C");
         // Ottenere la classe specifica dall'ontologia
         OWLClass owlConceptA = manager.getOWLDataFactory().getOWLClass(conceptA);
@@ -35,7 +35,6 @@ public class Application
         intersezioneClassi.add(owlConceptB);
 
         OWLClassExpression intersezione = manager.getOWLDataFactory().getOWLObjectIntersectionOf(intersezioneClassi);
-        System.out.println(intersezione);
         
         ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
         // Verifica se la classe esiste nell'ontologia
