@@ -196,6 +196,7 @@ public class ElPlusPlusNormalizer implements Normalizer
 			{
 				OWLObjectIntersectionOf intersection = (OWLObjectIntersectionOf) rhs;
                 ArrayList<OWLClassExpression> operands = new ArrayList<OWLClassExpression>(intersection.getOperands());
+                System.out.println("Operands: " + operands);
                 OWLClassExpression superClassOperand = getOperandInBCFromConjunction(operands);
                 //controllo se esiste almeno 1 operatore in BC
                 if(superClassOperand != null)
@@ -215,7 +216,10 @@ public class ElPlusPlusNormalizer implements Normalizer
                 }
                 //altrimenti crea direttamente l'inclusione
                 else
+                {
+                    System.out.println("Operands: " + operands);
                 	phaseTwoExpressions.add(new GCI(lhs, operands.get(0)));
+                }
 			}
 			else
 			{

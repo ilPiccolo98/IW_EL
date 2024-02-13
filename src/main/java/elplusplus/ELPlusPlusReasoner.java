@@ -9,68 +9,62 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ELPlusPlusReasoner {
-    private final Set<GCI> normalizedGCIs;
+    private Set<GCI> normalizedGCIs;
     private final OWLOntology ontology;
     private final OWLReasoner reasoner;
     private final Graph arrowRelationGraph;
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
     private Set<OWLObjectOneOf> oneOfObjects;
-    private Normalizer normalizer;
 
     public ELPlusPlusReasoner(OWLOntology ontology){
         this.ontology = ontology;
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
-        Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
-        this.oneOfObjects = Utilities.getNominalsFromCBox(gcis);
-        normalizer = new ElPlusPlusNormalizer(ontology, gcis);
+        //Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
+        //this.oneOfObjects = Utilities.getNominalsFromCBox(gcis);
+        /*normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
-        this.normalizedGCIs = normalizer.getNormalizedExpressions();
+        this.normalizedGCIs = normalizer.getNormalizedExpressions();*/
         arrowRelationGraph = new Graph();
-        initializeMappingS();
-        initializeMappingR();
+        //initializeMappingS();
+        //initializeMappingR();
     }
     
-    public void execute()
+    /*public void execute()
     {
     	useCompletionRules();
-    }
+    }*/
     
-    public boolean subsumption(OWLObject subclass, OWLObject superclass)
+    public boolean subsumption(OWLClassExpression subclass, OWLClassExpression superclass)
     {
-        if (subclass instanceof OWLClass && superclass instanceof OWLClass){
-            if(checkFirstConditionOfSubsumption(subclass, superclass) || checkSecondConditionOfSubsumption())
-                return true;
-            return false;
-        } else {
-            Set<GCI> newGCIs = new HashSet<>();
-            Tuple<OWLClass, OWLClass> newClasses = createQueryClasses(newGCIs, ((OWLClassExpression) subclass), ((OWLClassExpression) superclass));
-            Set<GCI> normalizedNewGCI = normalizeQueryGCI(newGCIs);
-            normalizedGCIs.addAll(normalizedNewGCI);
-            reInitializeMappings();
-
-            // C ⊑ D iff A ⊑ B
-            return checkFirstConditionOfSubsumption(newClasses.getFirst(), newClasses.getSecond()) || checkSecondConditionOfSubsumption();
-        }
+    	Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
+        Tuple<OWLClass, OWLClass> newClasses = createQueryClasses(subclass, superclass);
+        gcis.add(new GCI(newClasses.getFirst(), subclass)); // A ⊑ C
+        gcis.add(new GCI(superclass, newClasses.getSecond())); // D ⊑ B
+        oneOfObjects =  Utilities.getNominalsFromCBox(gcis);
+        normalizedGCIs = normalizeQueryGCI(gcis);
+        initializeMappings();
+        useCompletionRules();
+        
+        // C ⊑ D iff A ⊑ B
+        return checkFirstConditionOfSubsumption(newClasses.getFirst(), newClasses.getSecond()) || checkSecondConditionOfSubsumption();
+    
     }
 
-    private void reInitializeMappings(){
+    private void initializeMappings(){
         initializeMappingS();
         initializeMappingR();
-        useCompletionRules();
     }
 
-    private Tuple<OWLClass, OWLClass> createQueryClasses(Set<GCI> gcis, OWLClassExpression subclass, OWLClassExpression superclass){
-        OWLClass A = createNewClass(null);
-        OWLClass B = createNewClass(null);
-        gcis.add(new GCI(A, subclass)); // A ⊑ C
-        gcis.add(new GCI(superclass, B)); // D ⊑ B
+    private Tuple<OWLClass, OWLClass> createQueryClasses(OWLClassExpression subclass, OWLClassExpression superclass){
+        OWLClass A = createNewClass("subclass-subsumption");
+        OWLClass B = createNewClass("superclass-subsumption");
         return new Tuple<>(A, B);
     }
 
-    private Set<GCI> normalizeQueryGCI(Set<GCI> newGCIs){
-        Normalizer normalizer = new ElPlusPlusNormalizer(ontology, newGCIs);
+    private Set<GCI> normalizeQueryGCI(Set<GCI> gcis){
+        Normalizer normalizer = new ElPlusPlusNormalizer(ontology, gcis);
         normalizer.execute();
         return normalizer.getNormalizedExpressions();
     }
@@ -339,9 +333,12 @@ public class ELPlusPlusReasoner {
         }
     }
 
-    private OWLClass createNewClass(@Nullable String id) {
-        //todo: create a new class
-        return null;
+    private OWLClass createNewClass(String className) 
+    {
+        IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
+        IRI iriClassName = IRI.create(ontologyIRI.toString() + "#" + className);
+        OWLClass newClass = ontology.getOWLOntologyManager().getOWLDataFactory().getOWLClass(iriClassName);
+        return newClass;
     }
 
     private Set<OWLProperty> getProperties() {

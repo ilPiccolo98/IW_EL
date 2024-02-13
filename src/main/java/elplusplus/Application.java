@@ -1,10 +1,13 @@
 package elplusplus;
 
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -17,23 +20,30 @@ public class Application
 		//IRI pizzaontology = IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
         File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\test.rdf");
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
-        ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
-        reasoner.execute();
-        System.out.println("Algorithm finished");
         IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
         System.out.println(ontologyIRI);
         IRI conceptA = IRI.create(ontologyIRI.toString() + "#A");
-        IRI conceptB = IRI.create(ontologyIRI.toString() + "#E");
+        IRI conceptB = IRI.create(ontologyIRI.toString() + "#B");
+        IRI conceptC = IRI.create(ontologyIRI.toString() + "#C");
         // Ottenere la classe specifica dall'ontologia
         OWLClass owlConceptA = manager.getOWLDataFactory().getOWLClass(conceptA);
         OWLClass owlConceptB = manager.getOWLDataFactory().getOWLClass(conceptB);
-        System.out.println("Printing mapping s");
-        reasoner.printMappingS();
-        reasoner.printMappingR();
+        OWLClass owlConceptC = manager.getOWLDataFactory().getOWLClass(conceptC);
+        
+        Set<OWLClassExpression> intersezioneClassi = new HashSet<>();
+        intersezioneClassi.add(owlConceptA);
+        intersezioneClassi.add(owlConceptB);
+
+        OWLClassExpression intersezione = manager.getOWLDataFactory().getOWLObjectIntersectionOf(intersezioneClassi);
+        System.out.println(intersezione);
+        
+        ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
         // Verifica se la classe esiste nell'ontologia
         if (ontology.containsClassInSignature(conceptA) && ontology.containsClassInSignature(conceptB)) {
         	System.out.println("They exist");
-        	System.out.println("Result subsumption: " + reasoner.subsumption(owlConceptA, owlConceptB));
+        	System.out.println("Result subsumption: " + reasoner.subsumption(intersezione, owlConceptC));
+            reasoner.printMappingS();
+            reasoner.printMappingR();
         } else {
         	System.out.println("They don't exist");
         }
