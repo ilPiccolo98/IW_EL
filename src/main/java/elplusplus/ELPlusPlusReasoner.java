@@ -21,20 +21,8 @@ public class ELPlusPlusReasoner {
         this.ontology = ontology;
         OWLReasonerFactory rf = new ReasonerFactory();
         this.reasoner = rf.createReasoner(ontology);
-        //Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
-        //this.oneOfObjects = Utilities.getNominalsFromCBox(gcis);
-        /*normalizer = new ElPlusPlusNormalizer(ontology, gcis);
-        normalizer.execute();
-        this.normalizedGCIs = normalizer.getNormalizedExpressions();*/
         arrowRelationGraph = new Graph();
-        //initializeMappingS();
-        //initializeMappingR();
     }
-    
-    /*public void execute()
-    {
-    	useCompletionRules();
-    }*/
     
     public boolean subsumption(OWLClassExpression subclass, OWLClassExpression superclass)
     {
