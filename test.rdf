@@ -53,6 +53,30 @@
     
 
 
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r1">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r2">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r3">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -68,7 +92,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E1"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R1someC"/>
     </owl:Class>
     
 
@@ -77,7 +101,22 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#E1"/>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R2someD"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R3someB"/>
     </owl:Class>
     
 
@@ -96,13 +135,39 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeA -->
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R1someC -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#RsomeA">
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R1someC">
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#A"/>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r1"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#C"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R2someD -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R2someD">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r2"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#D"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R3someB -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#R3someB">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#r3"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-39#B"/>
             </owl:Restriction>
         </owl:equivalentClass>
     </owl:Class>
