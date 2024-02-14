@@ -236,6 +236,8 @@ public class ELPlusPlusReasoner {
     }
 
     private boolean isCR6Applied() {
+    	long start = System.currentTimeMillis();
+    	Object mutex = new Object();
     	AtomicBoolean found = new AtomicBoolean(false);
     	oneOfObjects.forEach(nominal -> {
     		mappingS.keySet().forEach(C -> {
@@ -246,22 +248,25 @@ public class ELPlusPlusReasoner {
     						if(arrowRelationGraph.hasPathBetween(C, D) && 
     								!mappingS.get(C).containsAll(mappingS.get(D)))
     						{
-    							found.set(true);
-    							Set<OWLObject> newValue = mappingS.get(C);
-    							newValue.addAll(mappingS.get(D));
+        							found.set(true);
+        							Set<OWLObject> newValue = mappingS.get(C);
+        							newValue.addAll(mappingS.get(D));
     						}
       						if(arrowRelationGraph.hasPathBetween(D, C) && 
     								!mappingS.get(D).containsAll(mappingS.get(C)))
     						{
-    							found.set(true);
-    							Set<OWLObject> newValue = mappingS.get(D);
-    							newValue.addAll(mappingS.get(C));
+        							found.set(true);
+        							Set<OWLObject> newValue = mappingS.get(D);
+        							newValue.addAll(mappingS.get(C));
     						}
     					}
     				});
     			}
     		});
     	});
+    	long finish = System.currentTimeMillis();
+    	long timeElapsed = finish - start;
+    	System.out.println(timeElapsed);
     	return found.get();
     }
 
