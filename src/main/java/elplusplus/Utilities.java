@@ -154,7 +154,8 @@ public class Utilities
 										.reduce((s1, s2) -> s1 + ", " + s2).orElse("")
 								+ "}";
 					case OBJECT_INTERSECTION_OF:
-						return "⊓";
+						List<OWLClassExpression> operands = ((OWLObjectIntersectionOf) expression).getOperandsAsList();
+						return "(" + operands.stream().map(Utilities::prettyPrint).reduce((s1, s2) -> s1 + " ⊓ " + s2).orElse("") + ")";
 					case OBJECT_SOME_VALUES_FROM:
 						return "∃" + ((OWLObjectSomeValuesFrom) expression).getProperty().asOWLObjectProperty().getIRI().getShortForm() + "."
 								+ prettyPrint(((OWLObjectSomeValuesFrom) expression).getFiller());
