@@ -7,6 +7,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 
 public class ELPlusPlusReasoner {
     private Set<GCI> normalizedGCIs;
@@ -293,32 +294,26 @@ public class ELPlusPlusReasoner {
     }
 
     private void initializeMappingS() {
-        OWLDataFactory factory = ontology.getOWLOntologyManager().getOWLDataFactory();
         mappingS = new HashMap<>();
         for(GCI gci: normalizedGCIs){
         	Set<OWLClassExpression> nestedClassOfSubClass =  gci.getSubClass().getNestedClassExpressions();
         	Set<OWLClassExpression> nestedClassOfSuperClass = gci.getSuperClass().getNestedClassExpressions();
-        	nestedClassOfSubClass.forEach(expression -> {
-        		if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF || 
-        				(expression.isOWLClass() && !expression.isBottomEntity()))
-        		{
-        			Set<OWLObject> mapped = new HashSet<>();
-        			mapped.add(expression); // Adding C to the set
-                    mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                    mappingS.put(expression, mapped);
-        		}
-        	});
-        	nestedClassOfSuperClass.forEach(expression -> {
-        		if(expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF || 
-        				(expression.isOWLClass() && !expression.isBottomEntity()))
-        		{
-        			Set<OWLObject> mapped = new HashSet<>();
-        			mapped.add(expression); // Adding C to the set
-                    mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
-                    mappingS.put(expression, mapped);
-        		}
-        	});
+        	nestedClassOfSubClass.forEach(getConsumerToInitializeMapping());
+        	nestedClassOfSuperClass.forEach(getConsumerToInitializeMapping());
         }
+    }
+
+    private Consumer<OWLClassExpression> getConsumerToInitializeMapping() {
+        OWLDataFactory factory = ontology.getOWLOntologyManager().getOWLDataFactory();
+        return expression -> {
+            if (expression.getClassExpressionType() == ClassExpressionType.OBJECT_ONE_OF ||
+                    (expression.isOWLClass() && !expression.isBottomEntity())) {
+                Set<OWLObject> mapped = new HashSet<>();
+                mapped.add(expression); // Adding C to the set
+                mapped.add(factory.getOWLThing()); // Adding ⊤ to the set
+                mappingS.put(expression, mapped);
+            }
+        };
     }
 
     private OWLClass createNewClass(String className) 
