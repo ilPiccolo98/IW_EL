@@ -5,7 +5,8 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-16="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16"/>
     
 
@@ -318,10 +319,87 @@
     
 
 
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AdvancedDatabases -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AdvancedDatabases">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DatabaseExam"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudyPlan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudyPlan">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StudyPlan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Algebra -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Algebra">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MathExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AlgorithmDesign -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AlgorithmDesign">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MathExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MathExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Benerecetti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Benerecetti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Algebra"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AlgorithmDesign"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Bonatti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Bonatti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ComputationalComplexity"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SecurityPrivacy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Ciuonzo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Ciuonzo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataAnalytics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ComputationalComplexity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ComputationalComplexity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
     </owl:NamedIndividual>
     
 
@@ -334,10 +412,27 @@
     
 
 
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Corazza -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Corazza">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StatisticalLearning"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudyPlan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudyPlan">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StudyPlan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataAnalytics -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataAnalytics">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceExam"/>
     </owl:NamedIndividual>
     
 
@@ -350,6 +445,74 @@
     
 
 
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DiMartino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DiMartino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IngSw"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SPME"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EDIT -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EDIT">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LogicExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EncryptionDecoding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EncryptionDecoding">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IngSw -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IngSw">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IntelligentWeb -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IntelligentWeb">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LogicExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LaPorta -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LaPorta">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Laccetti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Laccetti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Logic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Logic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LogicExam"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MAI -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MAI">
@@ -358,10 +521,197 @@
     
 
 
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Mele -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Mele">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#NeuralNetworks -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#NeuralNetworks">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#NoSql -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#NoSql">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DatabaseExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#OperativeResearch -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#OperativeResearch">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#PDC2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Peron -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Peron">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AdvancedDatabases"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#NoSql"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Rossi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Rossi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MAI"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SO2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SO2"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SPME -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SPME">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevExam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Sauro -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Sauro">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#IntelligentWeb"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Logic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SecurityPrivacy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SecurityPrivacy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityExam"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudyPlan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudyPlan">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StudyPlan"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Starace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Starace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SO2"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SPME"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StatisticalLearning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StatisticalLearning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:attends rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AlgorithmDesign"/>
+        <untitled-ontology-16:attends rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi1"/>
+        <untitled-ontology-16:passed rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ComputationalComplexity"/>
+        <untitled-ontology-16:passed rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataAnalytics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Tamburini -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Tamburini">
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EDIT"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
