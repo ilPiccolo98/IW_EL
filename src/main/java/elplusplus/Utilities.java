@@ -159,8 +159,11 @@ public class Utilities
 					case OBJECT_SOME_VALUES_FROM:
 						return "∃" + ((OWLObjectSomeValuesFrom) expression).getProperty().asOWLObjectProperty().getIRI().getShortForm() + "."
 								+ prettyPrint(((OWLObjectSomeValuesFrom) expression).getFiller());
+					case OBJECT_HAS_VALUE:
+						return "∃" + ((OWLObjectHasValue) expression).getProperty().asOWLObjectProperty().getIRI().getShortForm() + ".{"
+								+ prettyPrint(((OWLObjectHasValue) expression).getFiller()) + "}";
 					default:
-						return "Unknown";
+						throw new RuntimeException("Unknown class expression type " + expression.getClassExpressionType());
 				}
 			}catch(ClassCastException exception) {
 				// it's a role
