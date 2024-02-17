@@ -53,19 +53,14 @@ public class Utilities
 		return equivalentClasses;
 	}
 	
-	static Set<List<OWLClassExpression>> replaceEquivalentClasses(Set<GCI> gcis, Set<List<OWLClassExpression>> equivalentClasses)
+	static void replaceEquivalentClasses(Set<GCI> gcis, Set<List<OWLClassExpression>> equivalentClasses)
 	{
-		for(GCI gci : gcis)
-		{
-			for(List<OWLClassExpression> equivalentClass : equivalentClasses)
-			{
-				if(equivalentClass.get(0).equals(gci.getSubClass()))
-					gci.setSubClass(equivalentClass.get(1));
-				if(equivalentClass.get(0).equals(gci.getSuperClass()))
-					gci.setSuperClass(equivalentClass.get(1));
-			}
+		for(List<OWLClassExpression> equivalentClass :equivalentClasses){
+			GCI newGCI = new GCI(equivalentClass.get(0), equivalentClass.get(1));
+			gcis.add(newGCI);
+			newGCI = new GCI(equivalentClass.get(1), equivalentClass.get(0));
+			gcis.add(newGCI);
 		}
-		return equivalentClasses;
 	}
 	
 	static boolean isInBC(OWLObject object)
