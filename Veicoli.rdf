@@ -264,7 +264,7 @@
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Persona"/>
     </owl:Class>
     
 
