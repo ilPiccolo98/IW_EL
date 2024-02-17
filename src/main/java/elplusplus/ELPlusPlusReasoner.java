@@ -31,11 +31,12 @@ public class ELPlusPlusReasoner {
         Tuple<OWLClass, OWLClass> newClasses = createQueryClasses(subclass, superclass);
         gcis.add(new GCI(newClasses.getFirst(), subclass)); // A ⊑ C
         gcis.add(new GCI(superclass, newClasses.getSecond())); // D ⊑ B
+        System.out.println(gcis);
         oneOfObjects =  Utilities.getNominalsFromCBox(gcis);
         normalizedGCIs = normalizeQueryGCI(gcis);
+        System.out.println(normalizedGCIs);
         initializeMappings();
         useCompletionRules();
-        
         // C ⊑ D iff A ⊑ B
         return checkFirstConditionOfSubsumption(newClasses.getFirst(), newClasses.getSecond()) || checkSecondConditionOfSubsumption();
     
