@@ -90,19 +90,8 @@
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ActiveExam -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ActiveExam">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#attendedBy"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#teachedBy"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Professor"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#es_seguito_con_insegnante"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#InactiveExam"/>
     </owl:Class>
     
 
@@ -117,27 +106,7 @@
 
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudent -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#signedTo"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:oneOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudyPlan"/>
-                        </owl:oneOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudent"/>
     
 
 
@@ -151,27 +120,7 @@
 
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudent -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LogicExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#signedTo"/>
-                <owl:hasValue rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudyPlan"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudent"/>
     
 
 
@@ -185,27 +134,7 @@
 
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceStudent -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceStudent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MathExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#signedTo"/>
-                <owl:hasValue rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceStudyPlan"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceStudent"/>
     
 
 
@@ -220,6 +149,19 @@
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#InactiveExam -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#InactiveExam">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ActiveExam"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -248,13 +190,7 @@
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Professor -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Professor">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#teaches"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#insegnante"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:Class>
     
@@ -270,27 +206,7 @@
 
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudent -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudent">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DatabaseExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#passed"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevExam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#signedTo"/>
-                <owl:hasValue rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudyPlan"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudent"/>
     
 
 
@@ -305,6 +221,48 @@
     <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StudyPlan -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#StudyPlan"/>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#es_seguito_con_insegnante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#es_seguito_con_insegnante">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#attendedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#teachedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Professor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ActiveExam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#insegnante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#insegnante">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#teaches"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Exam"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Professor"/>
+    </owl:Class>
     
 
 
@@ -651,6 +609,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student1">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
         <untitled-ontology-16:attends rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AlgorithmDesign"/>
         <untitled-ontology-16:attends rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Analisi1"/>
         <untitled-ontology-16:passed rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#ComputationalComplexity"/>
@@ -663,6 +622,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student2">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -671,6 +631,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student3">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -679,6 +640,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student4">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -687,6 +649,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student5">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -695,6 +658,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student6">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -703,6 +667,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student7">
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Student"/>
     </owl:NamedIndividual>
     
 
@@ -713,6 +678,38 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#Person"/>
         <untitled-ontology-16:teaches rdf:resource="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#EDIT"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DatabaseExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#LogicExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#MathExam"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevExam"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#AiStudent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#CyberSecurityStudent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#DataScienceStudent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/nathe/ontologies/2024/1/untitled-ontology-16#SoftwareDevStudent"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
