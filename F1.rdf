@@ -162,6 +162,20 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#PilotaCollaudatore">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#PilotaF1"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#haLicenza"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#LicenzaF1"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#haScuderia"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#Scuderia"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -170,6 +184,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#PilotaDiGriglia">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#PilotaF1"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#haLicenza"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#LicenzaF1"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#haScuderia"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#Scuderia"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#iscrittoA"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#CampionatoF1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -225,7 +257,30 @@
 
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#ScuderiaCampionatoF1 -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#ScuderiaCampionatoF1"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#ScuderiaCampionatoF1">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#Scuderia"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#haMacchina"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#MacchinaCollaudata"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#MacchinaF1"/>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#iscrittoA"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-50#CampionatoF1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
