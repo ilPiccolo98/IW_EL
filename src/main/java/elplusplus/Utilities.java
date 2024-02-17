@@ -162,6 +162,8 @@ public class Utilities
 					case OBJECT_HAS_VALUE:
 						return "∃" + ((OWLObjectHasValue) expression).getProperty().asOWLObjectProperty().getIRI().getShortForm() + ".{"
 								+ prettyPrint(((OWLObjectHasValue) expression).getFiller()) + "}";
+					case OBJECT_COMPLEMENT_OF:
+						return "¬" + prettyPrint(((OWLObjectComplementOf) expression).getOperand());
 					default:
 						throw new RuntimeException("Unknown class expression type " + expression.getClassExpressionType());
 				}
