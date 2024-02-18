@@ -17,7 +17,7 @@ public class Application
 	public static void main(String[] args) throws OWLOntologyCreationException, OWLOntologyStorageException 
 	{
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\Veicoli.rdf");
+		File file = new File("C:\\Users\\Pc\\Desktop\\java projects\\elplusplus\\F1.rdf");
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
         ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
         
@@ -32,7 +32,7 @@ public class Application
         //VeicoliQueries.isIndividualsWithAutoBenzinaSubClassOfIndividualThatPagaBolloMotoAndAssicurazioneMoto(ontology, reasoner);
         //VeicoliQueries.isIndividualsWithMotoSportivaSubClassOfIndividualThatPagaBolloAutoAndAssicurazioneAuto(ontology, reasoner);
         //VeicoliQueries.isAdultoSubClassOfAdolescente(ontology, reasoner);
-        VeicoliQueries.isAutoBenzinaSubClassOfIndividualsWithMotore(ontology, reasoner);
+        //VeicoliQueries.isAutoBenzinaSubClassOfIndividualsWithMotore(ontology, reasoner);
         //VeicoliQueries.isAutoBenzinaSubClassOfIndividualsWithPedali(ontology, reasoner);
         
         //F1 QUERIES-------------------------------------
