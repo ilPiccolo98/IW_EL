@@ -237,8 +237,6 @@ public class ELPlusPlusReasoner {
     }
 
     private boolean isCR6Applied() {
-    	long start = System.currentTimeMillis();
-    	Object mutex = new Object();
     	AtomicBoolean found = new AtomicBoolean(false);
     	oneOfObjects.forEach(nominal -> {
     		mappingS.keySet().forEach(C -> {
@@ -265,9 +263,6 @@ public class ELPlusPlusReasoner {
     			}
     		});
     	});
-    	long finish = System.currentTimeMillis();
-    	long timeElapsed = finish - start;
-    	System.out.println(timeElapsed);
     	return found.get();
     }
 
