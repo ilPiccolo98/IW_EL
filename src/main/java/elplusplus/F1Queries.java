@@ -148,8 +148,8 @@ public class F1Queries
 	{
 		IRI ontologyIRI = ontology.getOntologyID().getOntologyIRI().get();
 		IRI conceptA = IRI.create(ontologyIRI.toString() + "#ScuderiaCampionatoF1");
-        IRI conceptB = IRI.create(ontologyIRI.toString() + "#Meccanico");
-        IRI conceptC = IRI.create(ontologyIRI.toString() + "#Ingegnere");
+        IRI conceptB = IRI.create(ontologyIRI.toString() + "#CapoMeccanico");
+        IRI conceptC = IRI.create(ontologyIRI.toString() + "#CapoIngegnere");
         IRI conceptD = IRI.create(ontologyIRI.toString() + "#TeamPrincipal");
         
         IRI roleA = IRI.create(ontologyIRI.toString() + "#haCapoMeccanico");
