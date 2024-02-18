@@ -21,14 +21,14 @@ public class Application
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(file);
         ELPlusPlusReasoner reasoner = new ELPlusPlusReasoner(ontology);
         
-        //VEICOLI QUERIES-------------------------------------
-        //VeicoliQueries.isScuderiaCampionatoF1SubClassOfScuderia(ontology, reasoner);
-        //VeicoliQueries.isPilotaDiGrigliaSubClassOfScuderia(ontology, reasoner);
-        //VeicoliQueries.isTeamPrincipalSubClassOfiscrittoASomeCampionatoF1(ontology, reasoner);
-        //VeicoliQueries.isPilotaF1SubClassOfPerson(ontology, reasoner);
-        //VeicoliQueries.isPilotaDiGrigliaSubClassOfAdulto(ontology, reasoner);
-        //VeicoliQueries.isPilotaDiGrigliaSubClassOftrasfertaSomeMonza(ontology, reasoner);
-        //VeicoliQueries.isPilotaCollaudatoreSubClassOftrasfertaSomeMonza(ontology, reasoner);
-        //VeicoliQueries.isScuderiaCampionatoF1SubClassOfIndividualWithTeamPrincipalCapoMeccanicoCapoIngengere(ontology, reasoner);
+        //F1 QUERIES-------------------------------------
+        //F1Queries.isScuderiaCampionatoF1SubClassOfScuderia(ontology, reasoner);
+        //F1Queries.isPilotaDiGrigliaSubClassOfScuderia(ontology, reasoner);
+        //F1Queries.isTeamPrincipalSubClassOfiscrittoASomeCampionatoF1(ontology, reasoner);
+        //F1Queries.isPilotaF1SubClassOfPerson(ontology, reasoner);
+        //F1Queries.isPilotaDiGrigliaSubClassOfAdulto(ontology, reasoner);
+        //F1Queries.isPilotaDiGrigliaSubClassOftrasfertaSomeMonza(ontology, reasoner);
+        //F1Queries.isPilotaCollaudatoreSubClassOftrasfertaSomeMonza(ontology, reasoner);
+        //F1Queries.isScuderiaCampionatoF1SubClassOfIndividualWithTeamPrincipalCapoMeccanicoCapoIngengere(ontology, reasoner);
 	}
 }

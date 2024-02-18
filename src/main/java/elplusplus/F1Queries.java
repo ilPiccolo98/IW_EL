@@ -9,7 +9,7 @@ import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
 
-public class VeicoliQueries 
+public class F1Queries 
 {
 	public static void isScuderiaCampionatoF1SubClassOfScuderia(OWLOntology ontology, ELPlusPlusReasoner reasoner)
 	{
