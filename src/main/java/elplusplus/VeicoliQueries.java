@@ -8,8 +8,6 @@ import org.semanticweb.owlapi.model.OWLObjectOneOf;
 import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLProperty;
-import org.semanticweb.owlapi.model.OWLPropertyExpression;
 
 public class VeicoliQueries 
 {
