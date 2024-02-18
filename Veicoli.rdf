@@ -88,117 +88,10 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdolescenteAndhaBiciclettaSomeBicicletta -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdolescenteAndhaBiciclettaSomeBicicletta">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdolescenteAndhaPatentePatenteMoto -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdolescenteAndhaPatentePatenteMoto">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteMoto"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoCiclista"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Persona"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaBiciclettaSomeBicicletta -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaBiciclettaSomeBicicletta">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaPatenteSomePatenteAuto -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaPatenteSomePatenteAuto">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteAuto"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Automobilista"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaPatenteSomePatenteMoto -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AdultoAndhaPatenteSomePatenteMoto">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteMoto"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoCiclista"/>
     </owl:Class>
     
 
@@ -237,23 +130,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoAndMotoAndBicicletta -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoAndMotoAndBicicletta">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina">
@@ -270,22 +146,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDieselAndAutoBenzina -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDieselAndAutoBenzina">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDiesel"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Automobilista -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Automobilista">
@@ -298,42 +158,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Persona"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#BambinoAndAdolescenteAndAdulto -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#BambinoAndAdolescenteAndAdulto">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#BambinoAndhaBiciclettaSomeBicicletta -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#BambinoAndhaBiciclettaSomeBicicletta">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
-                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
     </owl:Class>
     
 
@@ -472,22 +296,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#ScooterAndMotoSportiva -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#ScooterAndMotoSportiva">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoSportiva"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Scooter"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Veicolo -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Veicolo"/>
@@ -500,15 +308,119 @@
     
 
 
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAuto -->
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAuto">
-        <owl:equivalentClass>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adolescente"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteMoto"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoCiclista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
             </owl:Restriction>
-        </owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteAuto"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Automobilista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Adulto"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haPatente"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#PatenteMoto"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoCiclista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDiesel"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bambino"/>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haBicicletta"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Bicicletta"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Ciclista"/>
+    </owl:Class>
+    <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoSportiva"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Scooter"/>
+        </owl:intersectionOf>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -523,57 +435,30 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAutoBenzina -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAutoBenzina">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoBenzina"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAutoDiesel -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAutoSomeAutoDiesel">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDiesel"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#AutoDiesel"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haAuto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Auto"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeMoto -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeMoto">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -588,45 +473,27 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeMotoSportiva -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeMotoSportiva">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoSportiva"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#MotoSportiva"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeScooter -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMotoSomeScooter">
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Scooter"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
+    </owl:Restriction>
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
+        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Scooter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#haMoto"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/pc/ontologies/2024/1/untitled-ontology-48#Moto"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
+    </owl:Restriction>
 </rdf:RDF>
 
 
