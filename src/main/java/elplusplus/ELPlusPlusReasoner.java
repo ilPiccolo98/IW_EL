@@ -28,7 +28,7 @@ public class ELPlusPlusReasoner {
     public boolean subsumption(OWLClassExpression subclass, OWLClassExpression superclass)
     {
     	Set<GCI> gcis = Utilities.getGCIs(ontology, reasoner);
-        Tuple<OWLClass, OWLClass> newClasses = createQueryClasses(subclass, superclass);
+        Tuple<OWLClass, OWLClass> newClasses = createQueryClasses();
         gcis.add(new GCI(newClasses.getFirst(), subclass)); // A ⊑ C
         gcis.add(new GCI(superclass, newClasses.getSecond())); // D ⊑ B
         oneOfObjects =  Utilities.getNominalsFromCBox(gcis);
@@ -46,7 +46,7 @@ public class ELPlusPlusReasoner {
         initializeMappingR();
     }
 
-    private Tuple<OWLClass, OWLClass> createQueryClasses(OWLClassExpression subclass, OWLClassExpression superclass){
+    private Tuple<OWLClass, OWLClass> createQueryClasses(){
         OWLClass A = createNewClass("subclass-subsumption");
         OWLClass B = createNewClass("superclass-subsumption");
         return new Tuple<>(A, B);
