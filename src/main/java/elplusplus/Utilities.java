@@ -21,8 +21,6 @@ public class Utilities
 	static Set<GCI> getGCIs(OWLOntology ontology, OWLReasoner reasoner)
 	{
 		Set<GCI> classesGCIs = getClassesGCIs(ontology);
-		Set<List<OWLClassExpression>> equivalentClasses = getEquivalentClasses(ontology, reasoner);
-		replaceEquivalentClasses(classesGCIs, equivalentClasses);
 		return classesGCIs;
 	}
 	
@@ -37,35 +35,6 @@ public class Utilities
             gcis.add(new GCI(subClass, superClass));
         }
 		return gcis;
-	}
-	
-	static Set<List<OWLClassExpression>> getEquivalentClasses(OWLOntology ontology, OWLReasoner reasoner)
-	{
-		Set<List<OWLClassExpression>> equivalentClasses = new HashSet<List<OWLClassExpression>>();
-		for(OWLAxiom axiom : ontology.getAxioms())
-		{
-			if (axiom.isOfType(AxiomType.EQUIVALENT_CLASSES))
-			{
-				OWLEquivalentClassesAxiom assertion = (OWLEquivalentClassesAxiom)axiom;
-				equivalentClasses.add(assertion.getOperandsAsList());
-			}
-		}
-		return equivalentClasses;
-	}
-	
-	static Set<List<OWLClassExpression>> replaceEquivalentClasses(Set<GCI> gcis, Set<List<OWLClassExpression>> equivalentClasses)
-	{
-		for(GCI gci : gcis)
-		{
-			for(List<OWLClassExpression> equivalentClass : equivalentClasses)
-			{
-				if(equivalentClass.get(0).equals(gci.getSubClass()))
-					gci.setSubClass(equivalentClass.get(1));
-				if(equivalentClass.get(0).equals(gci.getSuperClass()))
-					gci.setSuperClass(equivalentClass.get(1));
-			}
-		}
-		return equivalentClasses;
 	}
 	
 	static boolean isInBC(OWLObject object)
