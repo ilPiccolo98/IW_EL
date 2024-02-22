@@ -13,7 +13,7 @@ public class ELPlusPlusReasoner {
     private Set<GCI> normalizedGCIs;
     private final OWLOntology ontology;
     private final OWLReasoner reasoner;
-    private final Graph arrowRelationGraph;
+    private Graph arrowRelationGraph;
     private Map<OWLObject, Set<OWLObject>> mappingS;
     private Map<OWLProperty, Set<Tuple<OWLObject, OWLObject>>> mappingR;
     private Set<OWLObjectOneOf> oneOfObjects;
@@ -291,6 +291,7 @@ public class ELPlusPlusReasoner {
         for (OWLProperty property: properties){
             mappingR.put(property, new HashSet<>());
         }
+        this.arrowRelationGraph = new Graph();
     }
 
     private void initializeMappingS() {
