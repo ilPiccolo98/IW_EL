@@ -175,7 +175,7 @@ public class ELPlusPlusReasoner {
         OWLObject lhs = gci.getSubClass(); // C'
         OWLObject rhs = gci.getSuperClass(); // ∃r.D
         // checks if lhs is a simple concept and rhs is an existential restriction
-        if ((lhs instanceof OWLClass || lhs instanceof OWLIndividual) && 
+        if ((lhs instanceof OWLClass || lhs instanceof OWLObjectOneOf) &&
         		rhs instanceof OWLObjectSomeValuesFrom) {
             // checks if the tuple (C,D) is not in mappingR for the property r
             OWLObject D = ((OWLObjectSomeValuesFrom) rhs).getFiller();
@@ -200,7 +200,7 @@ public class ELPlusPlusReasoner {
         OWLObject rhs = gci.getSuperClass(); // E
 
         if (lhs instanceof OWLObjectSomeValuesFrom && 
-        		(rhs instanceof OWLClass || rhs instanceof OWLIndividual)) {
+        		(rhs instanceof OWLClass || rhs instanceof OWLObjectOneOf)) {
             OWLObject D_primo = ((OWLObjectSomeValuesFrom) lhs).getFiller();
             OWLProperty r = ((OWLObjectProperty) ((OWLObjectSomeValuesFrom) lhs).getProperty());
             Set<Tuple<OWLObject, OWLObject>> R_di_r = mappingR.get(r);
